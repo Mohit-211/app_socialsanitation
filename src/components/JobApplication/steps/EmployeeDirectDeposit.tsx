@@ -45,6 +45,7 @@ const EmployeeDirectDeposit = ({
       }));
     }
     form.setFieldsValue({
+      employee_name: formData.directDeposit?.employee_name || "",
       date: formData.directDeposit?.date
         ? dayjs(formData.directDeposit.date, DATE_STORAGE_FORMAT, true)
         : null,
@@ -91,54 +92,54 @@ const EmployeeDirectDeposit = ({
 
   return (
     <div>
-      <ul>
-        <p>
-          {t("directDeposit.introBeforeName")}
-          &nbsp;
-          <span>
-            <Form.Item
-              name="employee_name"
-              style={{ display: "inline-block", margin: "0" }}
-              rules={[
-                {
-                  required: true,
-                  message: t("directDeposit.employeeNameRequired"),
-                },
-              ]}
-            >
-              <Input
-                placeholder={t("directDeposit.employeeNamePlaceholder")}
-                style={{
-                  border: "1px solid black",
-                  borderTop: "0",
-                  borderLeft: "0",
-                  borderRight: "0",
-                  background: "transparent",
-                  padding: "0",
-                  width: "auto",
-                  borderRadius: "0",
-                }}
-              />
-            </Form.Item>
-          </span>
-          &nbsp;{t("directDeposit.introAfterName")}
-        </p>
-        <li>
-          {t("directDeposit.item1Pre")}{" "}
-          <b>{t("directDeposit.companyLegalName")}</b>{" "}
-          {t("directDeposit.item1Post")}
-        </li>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-
       <Form
         form={form}
         layout="vertical"
         initialValues={formData.directDeposit}
         onValuesChange={handleChange}
       >
+        <ul>
+          <p>
+            {t("directDeposit.introBeforeName")}
+            &nbsp;
+            <span>
+              <Form.Item
+                name="employee_name"
+                style={{ display: "inline-block", margin: "0" }}
+                rules={[
+                  {
+                    required: true,
+                    message: t("directDeposit.employeeNameRequired"),
+                  },
+                ]}
+              >
+                <Input
+                  placeholder={t("directDeposit.employeeNamePlaceholder")}
+                  style={{
+                    border: "1px solid black",
+                    borderTop: "0",
+                    borderLeft: "0",
+                    borderRight: "0",
+                    background: "transparent",
+                    padding: "0",
+                    width: "auto",
+                    borderRadius: "0",
+                  }}
+                />
+              </Form.Item>
+            </span>
+            &nbsp;{t("directDeposit.introAfterName")}
+          </p>
+          <li>
+            {t("directDeposit.item1Pre")}{" "}
+            <b>{t("directDeposit.companyLegalName")}</b>{" "}
+            {t("directDeposit.item1Post")}
+          </li>
+          {items.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+
         <Form.Item
           label={t("directDeposit.signatureLabel")}
           name="signature"
@@ -168,7 +169,11 @@ const EmployeeDirectDeposit = ({
             value: value ? dayjs(value, DATE_STORAGE_FORMAT, true) : null,
           })}
         >
-          <DatePicker format={DATE_DISPLAY_FORMAT} />
+          <DatePicker format={DATE_DISPLAY_FORMAT} 
+           placeholder={t(
+                    "floridaAgreement.entireAgreement.datePlaceholder"
+                  )}
+          />
         </Form.Item>
 
         <Form.List name="banks">

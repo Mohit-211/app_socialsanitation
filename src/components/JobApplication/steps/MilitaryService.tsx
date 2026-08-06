@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { DatePicker, Form, Input, Radio } from "antd";
 import type { FormInstance } from "antd/es/form";
-import dayjs, { type Dayjs } from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import { useTranslation } from "../../../translation/useTranslation";
+import dayjs from "dayjs";
+import type { Dayjs } from "dayjs";
+ import { useTranslation } from "../../../translation/useTranslation";
 import type { Language } from "../../../translation/types";
 import type { JobApplicationFormData } from "../../../types/jobApplication";
 
-dayjs.extend(customParseFormat);
+ 
 
 const { RangePicker } = DatePicker;
 const SERVICE_PERIOD_FORMAT = "MM-01-YYYY"; // month/year picker, stored with a fixed day of 01

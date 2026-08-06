@@ -1,3 +1,4 @@
+
 {
   "steps": {
     "disclosureAndAuthorization": "Disclosure & Authorization",
@@ -37,7 +38,14 @@
   "buttons": {
     "previous": "Anterior",
     "next": "Siguiente",
-    "submit": "Submit Application"
+    "submit": "Submit Application",
+    "resetForm": "Restablecer formulario"
+  },
+  "resetConfirm": {
+    "title": "¿Restablecer formulario?",
+    "body": "Esto borrará toda la información ingresada y no se puede deshacer.",
+    "ok": "Restablecer",
+    "cancel": "Cancelar"
   },
   "messages": {
     "submitSuccess": "Form submitted successfully!",

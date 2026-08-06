@@ -1,14 +1,17 @@
 import { useEffect, type Dispatch, type SetStateAction } from "react";
 import { Form, Input, DatePicker, Radio, Row, Col } from "antd";
 import type { FormInstance } from "antd/es/form";
+import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
-import { educationSections } from "@/config/educationFields";
+ import { educationSections } from "@/config/educationFields";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type {
   EducationData,
   JobApplicationFormData,
 } from "@/types/jobApplication";
+
+ 
 
 const { RangePicker } = DatePicker;
 const YEAR_FORMAT = "YYYY";
@@ -33,31 +36,11 @@ const Education = ({
   }, []);
 
   const handleChange = (changedValues: Record<string, unknown>) => {
-    const updatedValues: EducationData = {};
-
-    Object.entries(changedValues).forEach(([key, value]) => {
-      if (
-        Array.isArray(value) &&
-        value.length === 2 &&
-        (value[0] as Dayjs)?.format
-      ) {
-        const [start, end] = value as Dayjs[];
-        updatedValues[key] = [
-          start.format(YEAR_FORMAT),
-          end.format(YEAR_FORMAT),
-        ];
-      } else if ((value as Dayjs)?.format) {
-        updatedValues[key] = (value as Dayjs).format(YEAR_FORMAT);
-      } else {
-        updatedValues[key] = value as string | undefined;
-      }
-    });
-
     setFormData((prev) => ({
       ...prev,
       education: {
         ...(prev.education || {}),
-        ...updatedValues,
+        ...(changedValues as EducationData),
       },
     }));
   };
@@ -116,6 +99,25 @@ const Education = ({
                   key={field.name}
                   label={fieldLabel(field.name)}
                   name={field.name}
+                  {...(field.type === "range"
+                    ? {
+                        getValueFromEvent: (
+                          dates: [Dayjs | null, Dayjs | null] | null
+                        ) =>
+                          dates
+                            ? dates.map((d) => (d ? d.format(YEAR_FORMAT) : null))
+                            : null,
+                        getValueProps: (
+                          value?: [string | null, string | null] | null
+                        ) => ({
+                          value: value
+                            ? value.map((v) =>
+                                v ? dayjs(v, YEAR_FORMAT, true) : null
+                              )
+                            : undefined,
+                        }),
+                      }
+                    : {})}
                 >
                   {field.type === "text" ? (
                     <Input placeholder={placeholder(field.name)} />

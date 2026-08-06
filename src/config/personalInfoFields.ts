@@ -1,8 +1,11 @@
+import type { PersonalInfo } from "@/types/jobApplication";
+
+
 export interface FieldConfig {
-  name: string;
+  name: keyof PersonalInfo;
   type: "text" | "email" | "date";
-  required?: boolean;
   span: number;
+  required?: boolean;
   isPhone?: boolean;
   prefix?: string;
 }

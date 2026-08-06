@@ -1,14 +1,14 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Col, DatePicker, Form, Input, Row } from "antd";
 import type { FormInstance } from "antd/es/form";
-import dayjs, { type Dayjs } from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
+import dayjs from "dayjs";
+import type { Dayjs } from "dayjs";
 import SignatureInput from "@/components/common/SignatureInput";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type { JobApplicationFormData } from "@/types/jobApplication";
 
-dayjs.extend(customParseFormat);
+
 
 const DATE_FORMAT = "MM-DD-YYYY";
 
@@ -198,7 +198,11 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
               value: value ? dayjs(value, DATE_FORMAT, true) : null,
             })}
           >
-            <DatePicker style={{ width: "100%" }} format={DATE_FORMAT} />
+            <DatePicker style={{ width: "100%" }} format={DATE_FORMAT}
+              placeholder={t(
+                "floridaAgreement.entireAgreement.datePlaceholder"
+              )}
+            />
           </Form.Item>
 
           <p>{t("policy.eeocNote")}</p>

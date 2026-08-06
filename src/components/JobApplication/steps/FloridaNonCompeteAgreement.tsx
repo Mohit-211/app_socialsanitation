@@ -1,16 +1,16 @@
 import { useState, type Dispatch, type SetStateAction } from "react";
 import { Col, DatePicker, Form, Input, Row, Select } from "antd";
 import type { FormInstance } from "antd/es/form";
-import dayjs, { type Dayjs } from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import advancedFormat from "dayjs/plugin/advancedFormat";
+import dayjs from "dayjs";
+import type { Dayjs } from "dayjs";
+ import advancedFormat from "dayjs/plugin/advancedFormat";
 import SignatureInput from "@/components/common/SignatureInput";
 import { floridaJurisdictions } from "@/config/floridaJurisdictions";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type { JobApplicationFormData } from "@/types/jobApplication";
 
-dayjs.extend(customParseFormat);
+ 
 dayjs.extend(advancedFormat); // needed for the "Do" (ordinal day) display token below
 
 const DATE_STORAGE_FORMAT = "MM-DD-YYYY";

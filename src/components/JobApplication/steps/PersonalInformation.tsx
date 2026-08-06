@@ -2,6 +2,7 @@ import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Form, Input, DatePicker, Checkbox, Row, Col, Space } from "antd";
 import type { FormInstance, Rule } from "antd/es/form";
 import dayjs from "dayjs";
+import type { Dayjs } from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import SignatureInput from "@/components/common/SignatureInput";
 import {
@@ -82,37 +83,25 @@ const PersonalInformation = ({
     formData.personalInfo?.signature ?? null
   );
 
-  useEffect(() => {
-    form.setFieldsValue({
-      ...formData.personalInfo,
-      dateOfBirth: formData.personalInfo?.dateOfBirth
-        ? dayjs(formData.personalInfo.dateOfBirth, DATE_FORMAT, true)
-        : null,
-      dateAvailable: formData.personalInfo?.dateAvailable
-        ? dayjs(formData.personalInfo.dateAvailable, DATE_FORMAT, true)
-        : null,
-      employmentType: formData.personalInfo?.employmentType || [],
-    });
-  }, [formData, form]);
-
-  const handleChange = (
-    changedValues: Partial<PersonalInfo>,
-    allValues: Partial<PersonalInfo>
-  ) => {
-    const updatedValues = { ...allValues };
-    if (changedValues.employmentType) {
-      updatedValues.employmentType = Array.isArray(changedValues.employmentType)
-        ? changedValues.employmentType
-        : [];
-    }
-    setFormData((prev) => ({
-      ...prev,
-      personalInfo: {
-        ...prev.personalInfo,
-        ...updatedValues,
-      },
-    }));
-  };
+useEffect(() => {
+  form.setFieldsValue({
+    ...formData.personalInfo,
+    employmentType: formData.personalInfo?.employmentType || [],
+  });
+}, [formData.personalInfo]);
+const handleChange = (
+  changedValues: Partial<PersonalInfo>,
+  allValues: Partial<PersonalInfo>
+) => {
+  setFormData((prev) => ({
+    ...prev,
+    personalInfo: {
+      ...prev.personalInfo,
+      ...allValues,
+      ...changedValues,
+    },
+  }));
+};
 
   const handleSaveSignature = (signatureData: string) => {
     setSignatureImageURL(signatureData);
@@ -149,6 +138,15 @@ const PersonalInformation = ({
                 label={label}
                 name={field.name}
                 rules={buildRules(field, t)}
+                {...(field.type === "date"
+                  ? {
+                      getValueFromEvent: (date: Dayjs | null) =>
+                        date ? date.format(DATE_FORMAT) : null,
+                      getValueProps: (value?: string | null) => ({
+                        value: value ? dayjs(value, DATE_FORMAT, true) : null,
+                      }),
+                    }
+                  : {})}
               >
                 {field.type === "text" || field.type === "email" ? (
                   <Input
@@ -189,31 +187,37 @@ const PersonalInformation = ({
                     }}
                   />
                 ) : (
-                  <DatePicker
-                    style={{ width: "100%" }}
-                    format={DATE_FORMAT}
-                    onChange={(dateObj) => {
-                      if (dateObj) {
-                        const formattedDate = dateObj.format(DATE_FORMAT);
-                        form.setFieldsValue({ [field.name]: dateObj });
-                        handleChange(
-                          {
-                            [field.name]: formattedDate,
-                          } as Partial<PersonalInfo>,
-                          {
-                            ...form.getFieldsValue(),
-                            [field.name]: formattedDate,
-                          }
-                        );
-                      } else {
-                        form.setFieldsValue({ [field.name]: null });
-                        handleChange(
-                          { [field.name]: null } as Partial<PersonalInfo>,
-                          { ...form.getFieldsValue(), [field.name]: null }
-                        );
-                      }
-                    }}
-                  />
+<DatePicker
+  style={{ width: "100%" }}
+  format={DATE_FORMAT}
+   placeholder={t(
+                    "floridaAgreement.entireAgreement.datePlaceholder"
+                  )}
+  value={
+    formData.personalInfo?.[field.name]
+      ? dayjs(
+          formData.personalInfo[field.name] as string,
+          DATE_FORMAT,
+          true
+        )
+      : null
+  }
+  onChange={(date) => {
+    const value = date ? date.format(DATE_FORMAT) : null;
+
+    console.log("DATE FIELD:", field.name, value);
+
+    handleChange(
+      {
+        [field.name]: value,
+      } as Partial<PersonalInfo>,
+      {
+        ...formData.personalInfo,
+        [field.name]: value,
+      }
+    );
+  }}
+/>
                 )}
               </Form.Item>
             </Col>

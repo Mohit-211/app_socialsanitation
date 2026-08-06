@@ -40,7 +40,14 @@
   "buttons": {
     "previous": "Previous",
     "next": "Next",
-    "submit": "Submit Application"
+    "submit": "Submit Application",
+    "resetForm": "Reset Form"
+  },
+  "resetConfirm": {
+    "title": "Reset Form?",
+    "body": "This will clear all entered information and cannot be undone.",
+    "ok": "Reset",
+    "cancel": "Cancel"
   },
   "messages": {
     "submitSuccess": "Form submitted successfully!",

@@ -1,9 +1,9 @@
 import type { Dispatch, SetStateAction } from "react";
 import { Form, Input, DatePicker, Radio, Button, Row, Col } from "antd";
 import type { FormInstance } from "antd/es/form";
-import dayjs, { type Dayjs } from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
-import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
+import dayjs from "dayjs";
+import type { Dayjs } from "dayjs";
+ import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type {
@@ -11,7 +11,7 @@ import type {
   JobApplicationFormData,
 } from "@/types/jobApplication";
 
-dayjs.extend(customParseFormat);
+ 
 
 const { RangePicker } = DatePicker;
 const DURATION_FORMAT = "MM-01-YYYY"; // month/year picker, stored with a fixed day of 01

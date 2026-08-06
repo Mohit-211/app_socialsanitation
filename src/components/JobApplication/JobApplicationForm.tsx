@@ -75,22 +75,97 @@ const createInitialFormData = (): JobApplicationFormData => ({
 const { useBreakpoint } = Grid;
 const LAST_STEP_INDEX = jobApplicationSteps.length - 1;
 
+const STORAGE_KEY = "jobApplicationFormData";
+const STEP_STORAGE_KEY = "jobApplicationCurrentStep";
+
+const loadStoredFormData = (): JobApplicationFormData => {
+  const initialData = createInitialFormData();
+
+  if (typeof window === "undefined") {
+    return initialData;
+  }
+
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+
+    if (!stored) {
+      return initialData;
+    }
+
+    const parsed = JSON.parse(stored);
+
+    return {
+      ...initialData,
+      ...parsed,
+      authorization: {
+        ...initialData.authorization,
+        ...(parsed.authorization || {}),
+      },
+    };
+  } catch (error) {
+    console.error("Failed to load form data:", error);
+    return initialData;
+  }
+};
+
+const loadStoredStep = (): number => {
+  if (typeof window === "undefined") {
+    return 0;
+  }
+
+  try {
+    const stored = localStorage.getItem(STEP_STORAGE_KEY);
+    const parsed = stored ? Number(stored) : 0;
+
+    if (
+      Number.isInteger(parsed) &&
+      parsed >= 0 &&
+      parsed <= LAST_STEP_INDEX
+    ) {
+      return parsed;
+    }
+  } catch (error) {
+    console.error("Failed to load step:", error);
+  }
+
+  return 0;
+};
+
+
 const JobApplicationForm = ({ language }: JobApplicationFormProps) => {
   const { t, tList } = useTranslation(language);
   const screens = useBreakpoint();
   const isCompactStepper = !screens.md;
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(loadStoredStep);
   const formRef = useRef<HTMLDivElement>(null);
   const [form] = Form.useForm();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isResetModalVisible, setIsResetModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<JobApplicationFormData>(
-    createInitialFormData()
+    loadStoredFormData
   );
+  const [formKey, setFormKey] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [currentStep]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+    } catch {
+      // storage unavailable or quota exceeded; skip persisting
+    }
+  }, [formData]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STEP_STORAGE_KEY, String(currentStep));
+    } catch {
+      // storage unavailable; skip persisting
+    }
   }, [currentStep]);
 
   const handleNext = async () => {
@@ -104,6 +179,22 @@ const JobApplicationForm = ({ language }: JobApplicationFormProps) => {
 
   const handleCloseModal = () => setIsModalVisible(false);
   const handlePrev = () => setCurrentStep((prev) => prev - 1);
+
+  const handleResetRequest = () => setIsResetModalVisible(true);
+  const handleCancelReset = () => setIsResetModalVisible(false);
+  const handleConfirmReset = () => {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(STEP_STORAGE_KEY);
+    } catch {
+      // storage unavailable; nothing to clean up
+    }
+    form.resetFields();
+    setFormData(createInitialFormData());
+    setCurrentStep(0);
+    setFormKey((prev) => prev + 1);
+    setIsResetModalVisible(false);
+  };
 
   const handleSubmit = async () => {
     try {
@@ -151,7 +242,25 @@ const JobApplicationForm = ({ language }: JobApplicationFormProps) => {
         <p>{t("modal.body")}</p>
       </Modal>
 
+      <Modal
+        title={t("resetConfirm.title")}
+        open={isResetModalVisible}
+        onCancel={handleCancelReset}
+        footer={[
+          <Button key="cancel" onClick={handleCancelReset}>
+            {t("resetConfirm.cancel")}
+          </Button>,
+          <Button key="ok" danger type="primary" onClick={handleConfirmReset}>
+            {t("resetConfirm.ok")}
+          </Button>,
+        ]}
+      >
+        <p>{t("resetConfirm.body")}</p>
+      </Modal>
+
       <Flex vertical gap="large" className="job-application-layout">
+
+
         {isCompactStepper ? (
           <div className="stepper-mobile">
             <Typography.Text strong>
@@ -174,8 +283,10 @@ const JobApplicationForm = ({ language }: JobApplicationFormProps) => {
             <Steps current={currentStep} items={stepItems} size="small" />
           </div>
         )}
-
-        <div className="form-content" ref={formRef}>
+        <Flex justify="flex-end">
+          <Button onClick={handleResetRequest}>{t("buttons.resetForm")}</Button>
+        </Flex>
+        <div className="form-content" ref={formRef} key={formKey}>
           {currentStep === 0 && (
             <>
               <h5>{t("stepHeadings.disclosureAndAuthorization")}</h5>

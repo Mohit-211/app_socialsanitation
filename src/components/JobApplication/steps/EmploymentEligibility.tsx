@@ -1,13 +1,16 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { Form, Input, DatePicker, Radio } from "antd";
 import type { FormInstance } from "antd/es/form";
+import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
-import { useTranslation } from "@/translation/useTranslation";
+ import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type {
   EmploymentEligibilityData,
   JobApplicationFormData,
 } from "@/types/jobApplication";
+
+ 
 
 const { RangePicker } = DatePicker;
 const DATE_FORMAT = "MM-DD-YYYY";
@@ -15,7 +18,7 @@ const DATE_FORMAT = "MM-DD-YYYY";
 interface RawEmploymentEligibilityChange {
   legallyEligible?: "yes" | "no";
   workedBefore?: "yes" | "no";
-  employmentDates?: Dayjs[] | null;
+  employmentDates?: [string | null, string | null] | null;
   convictedFelony?: "yes" | "no";
   felonyExplanation?: string;
 }
@@ -67,24 +70,11 @@ const EmploymentEligibility = ({
       }
     }
 
-    // employmentDates arrives as a [Dayjs, Dayjs] pair - format to plain strings
-    // before storing (same fix applied to Policy's Date of Birth: avoids putting a
-    // non-serializable Day.js instance into state / the submitted payload).
-    const { employmentDates, ...rest } = changed;
-    const updated: Partial<EmploymentEligibilityData> = { ...rest };
-    if (Array.isArray(employmentDates)) {
-      const [start, end] = employmentDates;
-      updated.employmentDates = [
-        start.format(DATE_FORMAT),
-        end.format(DATE_FORMAT),
-      ];
-    }
-
     setFormData((prev) => ({
       ...prev,
       employmentEligibility: {
         ...prev.employmentEligibility,
-        ...updated,
+        ...(changed as Partial<EmploymentEligibilityData>),
       },
     }));
   };
@@ -140,6 +130,14 @@ const EmploymentEligibility = ({
               message: t("employmentEligibility.employmentDates.required"),
             },
           ]}
+          getValueFromEvent={(dates: [Dayjs | null, Dayjs | null] | null) =>
+            dates ? dates.map((d) => (d ? d.format(DATE_FORMAT) : null)) : null
+          }
+          getValueProps={(value?: [string | null, string | null] | null) => ({
+            value: value
+              ? value.map((v) => (v ? dayjs(v, DATE_FORMAT, true) : null))
+              : undefined,
+          })}
         >
           <RangePicker style={{ width: "100%" }} format={DATE_FORMAT} />
         </Form.Item>
