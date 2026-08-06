@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.home-page {
+  --home-ink: #16233f;
+  --home-ink-deep: #0d1830;
+  --home-paper: #f4f7f6;
+  --home-steel: #5c7285;
+  --home-mist: #e4ecea;
+  --home-verdant: #1fae5c; // deeper, legible green - the brand's original
+  // #08f624 is too bright for white text to sit on reliably, so it's kept
+  // only as a decorative accent below, never as a text background.
+
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+  color: var(--home-ink);
+  background: var(--home-paper);
+  min-height: 100vh;
+
+  h1,
+  h2 {
+    font-family: "Space Grotesk", Arial, sans-serif;
+    margin: 0;
+  }
+
+  p {
+    line-height: 1.65;
+    color: var(--home-steel);
+  }
+}
+
+// --------------------------------------------------------------- about ----
+.home-about {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 64px 24px 56px;
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+
+  &__logo {
+    flex: 0 0 260px;
+    background: #fff;
+    border: 1px solid var(--home-mist);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &__copy {
+    flex: 1;
+    min-width: 0;
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+  }
+
+  &__counties {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin: 24px 0 0;
+
+    li {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--home-ink);
+      background: var(--home-mist);
+      border-radius: 999px;
+      padding: 7px 16px;
+    }
+  }
+}
+
+// ------------------------------------------------------------- actions ----
+.home-actions {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 24px 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.home-action-card {
+  background: #fff;
+  border: 1px solid var(--home-mist);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+
+  &__icon {
+    font-size: 30px;
+    color: var(--home-ink);
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-size: 19px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(22, 35, 63, 0.08);
+    border-color: transparent;
+  }
+
+  &--primary {
+    border-color: var(--home-ink);
+  }
+}
+
+// Solid, always-legible primary button - white text on solid navy has a
+// comfortable ~13:1 contrast ratio at every point, unlike a gradient that
+// fades into bright green. The brand green survives as a thin accent strip
+// under the button label, never sitting directly behind text.
+.home-btn-primary {
+  background: var(--home-ink) !important;
+  border-color: var(--home-ink) !important;
+  color: #fff !important;
+  position: relative;
+  padding-bottom: 9px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--home-verdant);
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--home-ink-deep) !important;
+    border-color: var(--home-ink-deep) !important;
+    color: #fff !important;
+  }
+}
+
+// ------------------------------------------------------------ responsive ----
+@media (max-width: 900px) {
+  .home-about {
+    flex-direction: column;
+    gap: 32px;
+
+    &__logo {
+      flex: 0 0 auto;
+      width: 200px;
+    }
+  }
+
+  .home-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-about,
+  .home-actions {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

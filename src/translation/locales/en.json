@@ -1,0 +1,549 @@
+{
+  "steps": {
+    "disclosureAndAuthorization": "Disclosure & Authorization",
+    "personalInfo": "Personal Information",
+    "education": "Education",
+    "previousEmployment": "Previous Employment",
+    "references": "References",
+    "militaryService": "Military Service",
+    "backgroundCheck": "Background Check",
+    "disclaimer": "Disclaimer",
+    "floridaAgreement": "Florida Non-Compete",
+    "directDeposit": "Direct Deposit"
+  },
+  "stepHeadings": {
+    "disclosureAndAuthorization": "DISCLOSURE AND AUTHORIZATION TO OBTAIN CONSUMER REPORTS AND/OR INVESTIGATIVE CONSUMER REPORTS",
+    "authorizationToObtain": "AUTHORIZATION TO OBTAIN CONSUMER REPORTS AND/OR INVESTIGATIVE CONSUMER REPORTS",
+    "policyTopLeftLines": [
+      "DISCLOSURE TO INDEPENDENT",
+      "CONTRACTOR REGARDING",
+      "PROCUREMENT OF",
+      "A CONSUMER REPORT"
+    ],
+    "employmentJobApplication": "EMPLOYMENT / JOB APPLICATION",
+    "personalInformation": "PERSONAL INFORMATION",
+    "employmentEligibility": "EMPLOYMENT ELIGIBILITY",
+    "education": "EDUCATION",
+    "previousEmployment": "PREVIOUS EMPLOYMENT",
+    "references": "REFERENCES",
+    "militaryService": "MILITARY SERVICE",
+    "backgroundCheckConsent": "BACKGROUND CHECK CONSENT",
+    "disclaimer": "DISCLAIMER",
+    "floridaNonCompeteAgreement": "FLORIDA NON-COMPETE AGREEMENT",
+    "employeeDirectDepositAuthorization": "EMPLOYEE DIRECT DEPOSIT AUTHORIZATION"
+  },
+  "modal": {
+    "title": "⚠️ Incomplete Form",
+    "body": "🚨 Please fill in all required fields before proceeding to the next step.",
+    "ok": "OK"
+  },
+  "buttons": {
+    "previous": "Previous",
+    "next": "Next",
+    "submit": "Submit Application"
+  },
+  "messages": {
+    "submitSuccess": "Form submitted successfully!",
+    "submitUnexpected": "Unexpected response from the server.",
+    "submitIncomplete": "Please complete the final step before submitting.",
+    "submitFailed": "Submission failed! Please check your inputs."
+  },
+  "personalInfo": {
+    "fields": {
+      "firstName": "First Name",
+      "middleName": "Middle Name",
+      "lastName": "Last Name",
+      "streetAddress": "Street Address",
+      "aptSuite": "Apt/Suite",
+      "city": "City",
+      "state": "State",
+      "zipCode": "Zip Code",
+      "dateOfBirth": "Date of Birth",
+      "dateAvailable": "Date Available",
+      "email": "E-Mail",
+      "phone": "Phone",
+      "ssn": "Social Security Number",
+      "position": "Position Applied For",
+      "desiredPay": "Desired Pay"
+    },
+    "validation": {
+      "requiredTemplate": "Please enter {field}!",
+      "phoneRequired": "Please enter your phone number!",
+      "phonePattern": "Phone number must contain exactly 10 digits!",
+      "emailFormat": "Please enter a valid email address."
+    },
+    "employmentType": {
+      "label": "Employment Desired",
+      "required": "Please select at least one employment type!",
+      "options": ["Full-Time", "Part-Time", "Seasonal"]
+    },
+    "signature": {
+      "label": "Signature",
+      "required": "Signature is required!",
+      "openButton": "Open Signature Pad"
+    }
+  },
+  "disclosureAndAuthorization": {
+    "paragraphs": [
+      "This is a disclosure and authorization for Social Sanitation (the \"Company\") and its employees, agents, and representatives to obtain one or more consumer reports and/or investigative consumer reports about you in connection with your partnership with the Company. A consumer report and/or investigative consumer report may be obtained at any time during the application process or during your partnership with the Company.",
+      "A consumer report is a written, oral or other communication of any information by a consumer reporting agency potentially bearing on your credit worthiness, credit standing, credit capacity, character, general reputation, personal characteristics or mode of living which is used or expected to be used or collected in whole or in part for the purpose of serving as a factor in making an employment-related decision about you. Such information may include, for example, criminal history reports and/or driving records and all other pertinent records to the extent permitted by law.",
+      "An investigative consumer report is a written, oral, or other communication of any information by a consumer reporting agency obtained through personal interviews with sources such as neighbors, friends and associates bearing on your character, general reputation, personal characteristics, or mode of living which is used or expected to be used or collected in whole or in part for the purpose of serving as a factor in making an employment-related decision about you. Upon written request by you, the Company will provide you with a complete and accurate disclosure of the nature and scope of the investigation requested. A summary of your rights under the Fair Credit Reporting Act is enclosed."
+    ]
+  },
+  "authorizationToObtain": {
+    "intro": "Under the Fair Credit Reporting Act, before the Company may obtain a consumer report and/or investigative consumer report about you for employment or partnership purposes, we must have your written authorization. By signing below, you hereby authorize the Company and its employees, agents and representatives to obtain consumer reports and/or investigative consumer reports during the application process and/or during your employment or partnership with the Company.",
+    "signatureLabel": "Signature",
+    "signatureRequired": "Signature is required.",
+    "printedNameLabel": "Printed Name",
+    "printedNamePlaceholder": "Enter your name",
+    "printedNameRequired": "Please enter your name!",
+    "dateLabel": "Date",
+    "dateRequired": "Please select a date!",
+    "enclosures": "Enclosures: A Summary of Your Rights Under the Fair Credit Reporting Act"
+  },
+  "policy": {
+    "paragraphs": [
+      "In connection with your application as an Independent Contractor, we may procure a Background Investigative Report and/or Background Report on you as part of the process of considering your candidacy as an Independent Contractor. In the event that information from the report is utilized in whole or in part in making an adverse decision with regard to our potential partnership, before making the adverse decision, we will provide you with a copy of the consumer report and a description in writing of your rights under the federal Fair Credit Reporting Act.",
+      "The Fair Credit Reporting Act gives you specific rights in dealing with consumer reporting agencies. You will be given a summary of these rights together with this document.",
+      "By your signature below, you hereby authorize us to obtain a consumer report and/or an investigative report about you in order to consider you as an Independent Contractor. The information requested below is being used strictly for pre-contract background screening purposes in order to obtain accurate results. The consumer report may include, but not be limited to, criminal history, verifications of employment and education, and driving records. A credit report detailing personal financial history will only be obtained for permissible purposes in consideration of jobs meeting specific criteria."
+    ],
+    "applicantName": {
+      "label": "Applicant's Name (Full Legal Name)",
+      "placeholder": "Enter your full legal name",
+      "required": "Please enter your full legal name!"
+    },
+    "applicantAddress": {
+      "label": "Applicant's Address",
+      "placeholder": "Enter your address",
+      "required": "Please enter your address!"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "Enter your city",
+      "required": "Please enter your city!"
+    },
+    "state": {
+      "label": "State",
+      "placeholder": "Enter your state",
+      "required": "Please enter your state!"
+    },
+    "zip": {
+      "label": "Zip",
+      "placeholder": "Enter your zip code",
+      "required": "Please enter your zip code!"
+    },
+    "signature1": {
+      "label": "Signature",
+      "required": "Signature is required."
+    },
+    "ssn": {
+      "label": "Social Security Number",
+      "placeholder": "Enter your SSN",
+      "required": "Please enter your SSN!"
+    },
+    "dob": {
+      "label": "Date of Birth",
+      "required": "Please select your date of birth!"
+    },
+    "eeocNote": "The EEOC states for the purpose of pre-employment inquiries, under the Age Discrimination in Employment Act of 1967, Section 1625.5, \"A request on the part of an employer for information such as 'Date of Birth' or 'State Age' on an employment application form is not, in itself, a violation of the Act.\"",
+    "licenseNumber": {
+      "label": "Driver's License Number",
+      "placeholder": "Enter your driver's license number",
+      "required": "Please enter your driver's license number!"
+    },
+    "licenseState": {
+      "label": "State",
+      "placeholder": "Enter your state",
+      "required": "Please enter your state!"
+    },
+    "toAllApplicants": "To All Applicants:",
+    "infoUseNote": "The information requested above is used to assist in the completion of a background investigation. The information will be maintained in a limited access file, detached from your application. The information will be used for the sole purpose of identification when conducting a background investigation.",
+    "rightsReceivedStatement": "I have received a copy of my Summary of Rights Under the Fair Credit Reporting Act.",
+    "signature2": { "label": "Signature", "required": "Signature is required." }
+  },
+  "employmentEligibility": {
+    "legallyEligible": {
+      "label": "ARE YOU LEGALLY ELIGIBLE TO WORK IN THE U.S?",
+      "required": "Please select an option!"
+    },
+    "workedBefore": {
+      "label": "HAVE YOU EVER WORKED FOR THIS EMPLOYER?",
+      "required": "Please select an option!"
+    },
+    "employmentDates": {
+      "label": "IF YES, WRITE THE START AND END DATES:",
+      "required": "Please select start and end dates!"
+    },
+    "convictedFelony": {
+      "label": "HAVE YOU EVER BEEN CONVICTED OF A FELONY?",
+      "required": "Please select an option!"
+    },
+    "felonyExplanation": {
+      "label": "IF YES, PLEASE EXPLAIN:",
+      "required": "Please provide an explanation!",
+      "placeholder": "Provide details..."
+    },
+    "yes": "YES",
+    "no": "NO"
+  },
+  "education": {
+    "placeholderTemplate": "Enter {field}",
+    "yes": "Yes",
+    "no": "No",
+    "sections": {
+      "highSchool": {
+        "title": "High School",
+        "fields": {
+          "highSchoolName": "School Name",
+          "highSchoolCity": "City",
+          "highSchoolState": "State",
+          "highSchoolDuration": "From - To",
+          "highSchoolGraduate": "Graduate?",
+          "highSchoolDiploma": "Diploma"
+        }
+      },
+      "college": {
+        "title": "College",
+        "fields": {
+          "collegeName": "College Name",
+          "collegeCity": "City",
+          "collegeState": "State",
+          "collegeDuration": "From - To",
+          "collegeGraduate": "Graduate?",
+          "collegeDegree": "Degree"
+        }
+      },
+      "other": {
+        "title": "Other Education",
+        "fields": {
+          "otherEducation": "Institution Name",
+          "otherCity": "City",
+          "otherState": "State",
+          "otherDuration": "From - To",
+          "otherDegree": "Degree/Certification"
+        }
+      }
+    }
+  },
+  "references": {
+    "heading": "Reference {index}",
+    "firstName": {
+      "label": "First Name",
+      "placeholder": "First Name",
+      "required": "Please enter first name!"
+    },
+    "lastName": {
+      "label": "Last Name",
+      "placeholder": "Last Name",
+      "required": "Please enter last name!"
+    },
+    "relationship": {
+      "label": "Relationship",
+      "placeholder": "Relationship",
+      "required": "Please enter relationship!"
+    },
+    "company": {
+      "label": "Company",
+      "placeholder": "Company Name",
+      "required": "Please enter company name!"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Title",
+      "required": "Please enter title!"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "Email",
+      "required": "Please enter a valid email!"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "Enter Phone Number",
+      "required": "Please enter the phone number!",
+      "pattern": "Phone number must contain exactly 10 digits!"
+    },
+    "removeButton": "Remove Reference",
+    "addButton": "Add Another Reference"
+  },
+  "previousEmployment": {
+    "hasJob": {
+      "label": "Have you had a previous job?",
+      "required": "Please select an option!"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "heading": "Employer {index}",
+    "companyName": {
+      "label": "Company / Individual",
+      "placeholder": "Enter Company or Individual Name",
+      "required": "Please enter the company name!"
+    },
+    "email": {
+      "label": "E-Mail",
+      "placeholder": "Enter E-Mail",
+      "required": "Please enter a valid email!"
+    },
+    "address": {
+      "label": "Address",
+      "placeholder": "Enter Street Address",
+      "required": "Please enter the address!"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "Enter City",
+      "required": "Please enter the city!"
+    },
+    "state": {
+      "label": "State",
+      "placeholder": "Enter State",
+      "required": "Please enter the state!"
+    },
+    "zip": {
+      "label": "Zip Code",
+      "placeholder": "Enter Zip Code",
+      "required": "Please enter the zip code!"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "Enter Phone Number",
+      "required": "Please enter the phone number!",
+      "pattern": "Phone number must contain exactly 10 digits!"
+    },
+    "jobTitle": {
+      "label": "Job Title",
+      "placeholder": "Enter Job Title",
+      "required": "Please enter the job title!"
+    },
+    "duration": {
+      "label": "From - To",
+      "required": "Please select the employment period!"
+    },
+    "responsibilities": {
+      "label": "Responsibilities",
+      "placeholder": "Enter Responsibilities",
+      "required": "Please enter job responsibilities!"
+    },
+    "reasonForLeaving": {
+      "label": "Reason for Leaving",
+      "placeholder": "Enter Reason for Leaving",
+      "required": "Please enter reason for leaving!"
+    },
+    "removeButton": "Remove Employer",
+    "addButton": "Add Another Employer"
+  },
+  "militaryService": {
+    "veteranLabel": "ARE YOU A VETERAN?",
+    "veteranRequired": "Please select an option!",
+    "yes": "Yes",
+    "no": "No",
+    "branch": {
+      "label": "Branch of Service",
+      "placeholder": "Enter Branch of Service",
+      "required": "Please enter the branch of service!"
+    },
+    "servicePeriod": {
+      "label": "Service Period (From - To)",
+      "required": "Please select service period!"
+    },
+    "rank": {
+      "label": "Rank at Discharge",
+      "placeholder": "Enter Rank",
+      "required": "Please enter the rank at discharge!"
+    },
+    "dischargeType": {
+      "label": "Type of Discharge",
+      "placeholder": "Enter Type of Discharge",
+      "required": "Please enter the type of discharge!"
+    },
+    "dischargeExplanation": {
+      "label": "If Other Than Honorable, Explain",
+      "placeholder": "Provide details...",
+      "required": "Please provide an explanation!"
+    }
+  },
+  "stepper": {
+    "progressLabel": "Step {current} of {total}"
+  },
+  "backgroundCheck": {
+    "label": "IF ASKED, ARE YOU WILLING TO CONSENT TO A BACKGROUND CHECK?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "disclaimer": {
+    "paragraphs": [
+      "Applicant understands that this is an Equal Opportunity Employer and committed to excellence through diversity. In order to ensure this application is acceptable, please print or type with the application being fully completed in order for it to be considered.",
+      "Please complete each section EVEN IF you decide to attach a resume.",
+      "I, the Applicant, certify that my answers are true and honest to the best of my knowledge. If this application leads to my eventual employment, I understand that any false or misleading information in my application or interview may result in my employment being terminated."
+    ],
+    "signatureLabel": "Signature",
+    "signatureRequired": "Signature is required.",
+    "dateLabel": "Date",
+    "dateRequired": "Date is required!",
+    "printedNameLabel": "Printed Name",
+    "printedNamePlaceholder": "Enter your name",
+    "printedNameRequired": "Printed name is required!"
+  },
+  "floridaAgreement": {
+    "purpose": {
+      "heading": "Purpose",
+      "intro": "This agreement, when countersigned below, shall constitute an agreement regarding certain confidential and proprietary information and trade secrets (\u201cConfidential Information\u201d) relating to the business of Social Sanitation Commercial Cleaning Solutions LLC hereinafter referred to as the \u201cCompany\u201d and",
+      "companyNameTitlePlaceholder": "Name and Title",
+      "companyNameTitleRequired": "Please enter the name and title!",
+      "middle": "hereinafter referred to as the \u201cRecipient\u201d (collectively referred to as the \u201cParties\u201d), as of the date executed by the Company (the \u201cEffective Date\u201d).",
+      "paragraph2": "Recipient shall strictly maintain the confidentiality of the Proprietary Information. Proprietary information may be shared between the Parties for use in scoping, estimating, and completing projects as well as for the everyday business practices for the Company and its clients/customers."
+    },
+    "nonCompete": {
+      "heading": "Non-Compete/Disclosure",
+      "intro": "During the tenure of the Recipient with the Company and the Time Period stated in Section 3 the Recipient shall not:",
+      "checkAllThatApply": "(Check All that Apply)",
+      "items": [
+        {
+          "bold": "Business Practices",
+          "text": "- Provide the same or similar industry products, services, or engage in any other way representation of any other business of a similar nature to the business of the Company without written consent. It is understood that the Recipient will be representing the Company exclusively during their tenure unless written notice has been provided from either of the Parties."
+        },
+        {
+          "bold": "Clients/Customers",
+          "text": "- Directly or indirectly engage in any similar business practice of the Company while being in contact with the Company\u2019s current or former clients. Nor shall the Recipient solicit any client of the Company for the benefit of a third party that is engaged in a similar business to that of the Company."
+        },
+        {
+          "bold": "General Competitor(s)",
+          "text": "- Engage in business activity, whether paid or non-paid, with a competitor of the Company that provides a similar product or service."
+        },
+        {
+          "bold": "Specific Competitor(s)",
+          "text": "- Engage in business activity, whether paid or non-paid, with the following business(es) or individual(s):"
+        },
+        {
+          "bold": "Employees",
+          "text": "- Hire, work alongside, or partner with any current employees, sales staff, or former employees or sales staff of Company."
+        }
+      ],
+      "specificCompetitorPlaceholder": "Enter business or individual name(s)",
+      "specificCompetitorRequired": "Please enter the competitor name(s)!"
+    },
+    "timePeriod": {
+      "heading": "Time Period",
+      "intro": "Recipient warrants and guarantees for the",
+      "placeholder": "Enter time period",
+      "required": "Please enter the time period!",
+      "outro": "period following the Effective Date of this agreement."
+    },
+    "purchaseOption": {
+      "heading": "Purchase Option",
+      "body": "The Company does not allow the Recipient to be released of liability from this agreement for any monetary amount or reason whatsoever."
+    },
+    "jurisdiction": {
+      "heading": "Jurisdiction",
+      "intro": "The jurisdiction of this agreement shall cover the areas of",
+      "placeholder": "Select jurisdiction",
+      "required": "Please select a jurisdiction!"
+    },
+    "confidentialInformation": {
+      "heading": "Confidential Information",
+      "body": "As used herein \u201cConfidential Information\u201d shall mean any and all technical and non-technical information provided by the Company, including but not limited to: data or other proprietary information relating to products, inventions, plans, methods, processes, know-how, developmental or experimental work, computer programs, databases, authorship, customer lists (including the names, buying habits or practices of any clients), the names of vendors or suppliers, marketing methods, reports, analyses, business plans, financial information, statistical information, or any other subject matter pertaining to any business of the Company or any it\u2019s respective clients, consultants, or licensees that is disclosed to the Recipient under the terms of this Agreement."
+    },
+    "permittedDisclosure": {
+      "heading": "Permitted Disclosure",
+      "intro": "Confidential Information does not include information which:",
+      "items": [
+        "Has become generally known to the public through no wrongful act by the Recipient;",
+        "Has been rightfully received by Recipient from a third party without restriction on disclosure and without breach of an obligation of confidentiality running either directly or indirectly to the Recipient;",
+        "Has been approved for release to the general public by written authorization of the Company;",
+        "Has been disclosed pursuant to the requirement of a governmental agency or a court of law without similar restrictions or other protections against public disclosure; or,",
+        "Has been independently developed by the Recipient without use, directly or indirectly of the Company\u2019s Confidential Information."
+      ]
+    },
+    "confidentiality": {
+      "heading": "Confidentiality",
+      "body": "Recipient acknowledges that it will have access to the Company\u2019s Confidential Information and agrees that it shall not directly or indirectly divulge, disclose or communicate any of the Confidential Information to any third party, except as may be required in the course of any formal business association or dealings with the Company and in any event, only with the prior written approval of the Company. The Recipient acknowledges that no license of the Confidential Information, by implication or otherwise, is granted to the Recipient by reason of this Agreement. Additionally, the Recipient acknowledges that it may only use the Confidential Information in connection with its business dealings with the Company and for no other purpose without the prior written consent of the Company. The Recipient further agrees that all Confidential Information, including without limitation any documents, files, reports, notebooks, samples, lists, correspondence, software, or other written or graphic records provided by the Company or produced using the Company\u2019s Confidential Information, will be held strictly confidential and returned upon request to the Company. The term of this Agreement will be ongoing as long as the Parties are working together in any formal capacity. The conditions of this Agreement shall survive the termination of this Agreement."
+    },
+    "consultantsEmployeesBound": {
+      "heading": "Consultants and Employees Bound",
+      "body": "Recipient agrees to disclose the Confidential Information to any agents, affiliates, directors, officers or any other employees (collectively, the \u201cEmployees\u201d) solely on a need-to-know basis and represents that such Employees have signed appropriate non-disclosure agreements or taken appropriate measures imposing on such Employees a duty to third parties (1) to hold any third party proprietary information received by such Employees in the strictest confidence, (2) not to disclose such third party Confidential Information to any other third party, and (3) not to use such Confidential Information for the benefit of anyone other than to whom it belongs, without the prior express written authorization of the Company."
+    },
+    "returnOfMaterials": {
+      "heading": "Return of Materials",
+      "body": "Upon termination or expiration of the Agreement, or upon written request of the Company, the Recipient shall promptly return to the Company all documents and other tangible materials representing the Company\u2019s Confidential Information and all copies thereof. The Company shall notify immediately the Recipient upon discovery of any loss or unauthorized disclosure of the Confidential Information."
+    },
+    "remedies": {
+      "heading": "Remedies",
+      "body": "Should the Recipient breach any of the provisions of this Agreement by unauthorized use, or by disclosure of the Confidential Information to any unauthorized third party to the Company\u2019s detriment or damage, the Recipient agrees to reimburse the Company for any loss or expense incurred by the Company as a result of such use or unauthorized disclosure or attempted disclosure, including without limitation court costs and reasonable attorney\u2019s fees incurred by the Company in enforcing the provisions hereof. Recipient further agrees that any unauthorized use of or disclosure of the Confidential Information will result in irreparable damage to the Company and that the Company shall be entitled to an award by any court of competent jurisdiction of a temporary restraining order and/or preliminary injunction against such unauthorized use or disclosure by the Recipient without the need to post a bond. Such remedies, however, shall not be deemed to be the exclusive remedies for any breach of this Agreement but shall be in addition to all other remedies available at law or equity."
+    },
+    "choiceOfLaw": {
+      "heading": "Choice of Law",
+      "body": "This Agreement shall be governed by and construed in accordance with the laws of the State of Florida without reference to its conflicts of laws principles. Any disputes arising from or related to the subject matter of this Agreement shall be heard in a court of appropriate jurisdiction of the Company\u2019s principal office and the parties hereby consent to the personal jurisdiction and venue of these courts. If any provisions of this Agreement or its applications is held to be invalid, illegal or unenforceable in any respect, the validity, legality or enforceability of any other provisions and applications herein shall not in any way be affected or impaired."
+    },
+    "entireAgreement": {
+      "heading": "Entire Agreement",
+      "paragraph1": "This Agreement represents the entire agreement of the parties and may only be modified by signature by both parties hereto.",
+      "paragraph2Intro": "In Witness Whereof, the parties hereto have agreed and signed this Non-Compete/Non-Disclosure Agreement on the",
+      "datePlaceholder": "Select date",
+      "dateRequired": "Please select a date!",
+      "companyColumnHeading": "The Company",
+      "companyLegalName": "Social Sanitation Commercial Cleaning Solutions LLC",
+      "recipientColumnHeading": "The Recipient",
+      "recipientNameLabel": "Name",
+      "recipientNameRequired": "Required",
+      "signatureLabel": "Signature",
+      "signatureRequired": "Signature is required."
+    }
+  },
+  "directDeposit": {
+    "employeeNamePlaceholder": "Enter Name",
+    "employeeNameRequired": "Please enter the employee name!",
+    "introBeforeName": "I, [employee]",
+    "introAfterName": ", hereby",
+    "item1Pre": "authorize my employer,",
+    "companyLegalName": "Social Sanitation Commercial Cleaning Solutions LLC",
+    "item1Post": "and its agents, including financial institutions, to initiate electronic credit entries, and if necessary, debit entries and adjustments for any credit entries in error to my checking and/or savings accounts listed below. This authorization will remain in effect until I have informed my employer in writing that I wish to cancel it and my employer has had reasonable time to effect such cancellation. I understand I should contact my bank to verify receipt of funds",
+    "items": [
+      "revise direct deposit bank account(s) as indicated below",
+      "cancel direct deposit of my paycheck completely. This cancellation is to take effect immediately and remain in full force and effect until the Company has received written notification from me of authorization to deposit my paycheck automatically. I acknowledge that I will now receive paychecks for which I am responsible for depositing and/or cashing"
+    ],
+    "signatureLabel": "Signature",
+    "signatureRequired": "Signature is required.",
+    "dateLabel": "Date",
+    "dateRequired": "Date is required!",
+    "bank": {
+      "bankName": {
+        "columnTitle": "Bank Name",
+        "label": "Bank Name",
+        "placeholder": "Enter bank details",
+        "required": "Required"
+      },
+      "accountType": {
+        "columnTitle": "Acct. Type",
+        "label": "Acct. Type",
+        "required": "Select account type",
+        "checking": "Checking",
+        "savings": "Savings"
+      },
+      "routingNumber": {
+        "columnTitle": "Routing Number",
+        "label": "Routing Number",
+        "placeholder": "Routing Number",
+        "required": "Required"
+      },
+      "accountNumber": {
+        "columnTitle": "Account Number",
+        "label": "Account Number",
+        "placeholder": "Account Number",
+        "required": "Required"
+      },
+      "amount": {
+        "columnTitle": "Amount",
+        "label": "Amount",
+        "placeholder": "Amount",
+        "required": "Required"
+      },
+      "percentage": {
+        "columnTitle": "Pct.",
+        "label": "Percentage",
+        "placeholder": "Percentage",
+        "required": "Required"
+      }
+    },
+    "addRowButton": "Add Row"
+  }
+}

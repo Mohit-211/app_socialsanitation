@@ -1,0 +1,60 @@
+.
+├── .DS_Store
+├── App.css
+├── App.tsx
+├── api
+│   ├── client.ts
+│   ├── jobApplication.ts
+│   └── userConsent.ts
+├── assets
+│   └── logo.png
+├── components
+│   ├── .DS_Store
+│   ├── HiringForm
+│   │   ├── HiringForm.scss
+│   │   └── HiringForm.tsx
+│   ├── Home
+│   │   ├── Home.scss
+│   │   └── Home.tsx
+│   ├── JobApplication
+│   │   ├── JobApplication.scss
+│   │   ├── JobApplicationForm.tsx
+│   │   ├── ThankYou.tsx
+│   │   └── steps
+│   │       ├── AuthorizationToObtain.tsx
+│   │       ├── BackgroundCheckConsent.tsx
+│   │       ├── Disclaimer.tsx
+│   │       ├── DisclosureAndAuthorization.tsx
+│   │       ├── Education.tsx
+│   │       ├── EmployeeDirectDeposit.tsx
+│   │       ├── EmploymentEligibility.tsx
+│   │       ├── FloridaNonCompleteAgreement.tsx
+│   │       ├── MilitaryService.tsx
+│   │       ├── PersonalInformation.tsx
+│   │       ├── Policy.tsx
+│   │       ├── PreviousEmployment.tsx
+│   │       └── References.tsx
+│   ├── Privacy
+│   │   └── Privacy.tsx
+│   ├── UserConsent
+│   │   ├── ThankYouPage.tsx
+│   │   └── UserConsent.tsx
+│   └── common
+│       └── SignatureInput.tsx
+├── config
+│   ├── jobApplicationSteps.ts
+│   └── personalInfoFields.ts
+├── index.css
+├── main.tsx
+├── new_structure.txt
+├── translation
+│   ├── locales
+│   │   ├── en.json
+│   │   └── es.json
+│   ├── types.ts
+│   └── useTranslation.ts
+└── types
+    ├── jobApplication.ts
+    └── userConsent.ts
+
+15 directories, 43 files

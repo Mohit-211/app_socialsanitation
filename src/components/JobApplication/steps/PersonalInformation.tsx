@@ -1,0 +1,275 @@
+import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
+import { Form, Input, DatePicker, Checkbox, Row, Col, Space } from "antd";
+import type { FormInstance, Rule } from "antd/es/form";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import SignatureInput from "@/components/common/SignatureInput";
+import {
+  personalInfoFields,
+  type FieldConfig,
+} from "@/config/personalInfoFields";
+import { useTranslation } from "@/translation/useTranslation";
+import type { Language } from "@/translation/types";
+import type {
+  JobApplicationFormData,
+  PersonalInfo,
+} from "@/types/jobApplication";
+
+dayjs.extend(customParseFormat);
+
+const DATE_FORMAT = "MM-DD-YYYY";
+
+// Config spans are authored for desktop (24/12/8 out of 24). On phones every
+// field should stack full-width regardless of its desktop span.
+function getResponsiveColProps(span: number) {
+  if (span >= 24) return { xs: 24 };
+  if (span >= 12) return { xs: 24, sm: 12 };
+  return { xs: 24, sm: 12, md: 8 };
+}
+
+interface PersonalInformationProps {
+  form: FormInstance;
+  formData: JobApplicationFormData;
+  setFormData: Dispatch<SetStateAction<JobApplicationFormData>>;
+  language: Language;
+}
+
+function buildRules(
+  field: FieldConfig,
+  t: (key: string, vars?: Record<string, string>) => string
+): Rule[] {
+  if (field.isPhone) {
+    return [
+      {
+        required: field.required,
+        message: t("personalInfo.validation.phoneRequired"),
+      },
+      {
+        pattern: /^\d{10}$/,
+        message: t("personalInfo.validation.phonePattern"),
+      },
+    ];
+  }
+
+  const rules: Rule[] = [];
+  if (field.required) {
+    rules.push({
+      required: true,
+      message: t("personalInfo.validation.requiredTemplate", {
+        field: t(`personalInfo.fields.${field.name}`).toLowerCase(),
+      }),
+    });
+  }
+  // Both languages now validate email format (previously Spanish-only).
+  if (field.name === "email") {
+    rules.push({
+      type: "email",
+      message: t("personalInfo.validation.emailFormat"),
+    });
+  }
+  return rules;
+}
+
+const PersonalInformation = ({
+  form,
+  formData,
+  setFormData,
+  language,
+}: PersonalInformationProps) => {
+  const { t, tList } = useTranslation(language);
+  const [isSignatureModalOpen, setIsSignatureModalOpen] = useState(false);
+  const [signatureImageURL, setSignatureImageURL] = useState<string | null>(
+    formData.personalInfo?.signature ?? null
+  );
+
+  useEffect(() => {
+    form.setFieldsValue({
+      ...formData.personalInfo,
+      dateOfBirth: formData.personalInfo?.dateOfBirth
+        ? dayjs(formData.personalInfo.dateOfBirth, DATE_FORMAT, true)
+        : null,
+      dateAvailable: formData.personalInfo?.dateAvailable
+        ? dayjs(formData.personalInfo.dateAvailable, DATE_FORMAT, true)
+        : null,
+      employmentType: formData.personalInfo?.employmentType || [],
+    });
+  }, [formData, form]);
+
+  const handleChange = (
+    changedValues: Partial<PersonalInfo>,
+    allValues: Partial<PersonalInfo>
+  ) => {
+    const updatedValues = { ...allValues };
+    if (changedValues.employmentType) {
+      updatedValues.employmentType = Array.isArray(changedValues.employmentType)
+        ? changedValues.employmentType
+        : [];
+    }
+    setFormData((prev) => ({
+      ...prev,
+      personalInfo: {
+        ...prev.personalInfo,
+        ...updatedValues,
+      },
+    }));
+  };
+
+  const handleSaveSignature = (signatureData: string) => {
+    setSignatureImageURL(signatureData);
+    setFormData((prev) => ({
+      ...prev,
+      personalInfo: { ...prev.personalInfo, signature: signatureData },
+    }));
+    setIsSignatureModalOpen(false);
+  };
+
+  const handleClearSignature = () => {
+    setSignatureImageURL(null);
+    setFormData((prev) => ({
+      ...prev,
+      personalInfo: { ...prev.personalInfo, signature: null },
+    }));
+  };
+
+  const employmentTypeOptions = tList("personalInfo.employmentType.options");
+
+  return (
+    <Form
+      layout="vertical"
+      form={form}
+      initialValues={formData.personalInfo || {}}
+      onValuesChange={handleChange}
+    >
+      <Row gutter={[16, 16]}>
+        {personalInfoFields.map((field) => {
+          const label = t(`personalInfo.fields.${field.name}`);
+          return (
+            <Col {...getResponsiveColProps(field.span)} key={field.name}>
+              <Form.Item
+                label={label}
+                name={field.name}
+                rules={buildRules(field, t)}
+              >
+                {field.type === "text" || field.type === "email" ? (
+                  <Input
+                    type={field.type}
+                    placeholder={label}
+                    prefix={field.prefix}
+                    maxLength={field.isPhone ? 10 : undefined}
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (field.isPhone) {
+                        value = value.replace(/\D/g, "").slice(0, 10);
+                      }
+                      if (field.name === "email") {
+                        value = value.replace(/\s/g, "");
+                      }
+                      handleChange(
+                        { [field.name]: value } as Partial<PersonalInfo>,
+                        {
+                          ...formData.personalInfo,
+                          [field.name]: value,
+                        } as Partial<PersonalInfo>
+                      );
+                    }}
+                    onKeyDown={(e) => {
+                      if (
+                        field.isPhone &&
+                        !/[0-9]/.test(e.key) &&
+                        ![
+                          "Backspace",
+                          "Delete",
+                          "ArrowLeft",
+                          "ArrowRight",
+                          "Tab",
+                        ].includes(e.key)
+                      ) {
+                        e.preventDefault();
+                      }
+                    }}
+                  />
+                ) : (
+                  <DatePicker
+                    style={{ width: "100%" }}
+                    format={DATE_FORMAT}
+                    onChange={(dateObj) => {
+                      if (dateObj) {
+                        const formattedDate = dateObj.format(DATE_FORMAT);
+                        form.setFieldsValue({ [field.name]: dateObj });
+                        handleChange(
+                          {
+                            [field.name]: formattedDate,
+                          } as Partial<PersonalInfo>,
+                          {
+                            ...form.getFieldsValue(),
+                            [field.name]: formattedDate,
+                          }
+                        );
+                      } else {
+                        form.setFieldsValue({ [field.name]: null });
+                        handleChange(
+                          { [field.name]: null } as Partial<PersonalInfo>,
+                          { ...form.getFieldsValue(), [field.name]: null }
+                        );
+                      }
+                    }}
+                  />
+                )}
+              </Form.Item>
+            </Col>
+          );
+        })}
+      </Row>
+
+      <Form.Item
+        label={t("personalInfo.employmentType.label")}
+        name="employmentType"
+        rules={[
+          {
+            required: true,
+            message: t("personalInfo.employmentType.required"),
+          },
+        ]}
+      >
+        <Checkbox.Group
+          onChange={(checkedValues) => {
+            form.setFieldsValue({ employmentType: checkedValues });
+            handleChange(
+              { employmentType: checkedValues as string[] },
+              form.getFieldsValue()
+            );
+          }}
+        >
+          <Space>
+            {employmentTypeOptions.map((option) => (
+              // Value is intentionally language-specific (legacy behavior preserved).
+              <Checkbox key={option} value={option.toLowerCase()}>
+                {option}
+              </Checkbox>
+            ))}
+          </Space>
+        </Checkbox.Group>
+      </Form.Item>
+
+      <Form.Item
+        label={t("personalInfo.signature.label")}
+        name="signature"
+        rules={[
+          { required: true, message: t("personalInfo.signature.required") },
+        ]}
+      >
+        <SignatureInput
+          onSave={handleSaveSignature}
+          onClear={handleClearSignature}
+          imageURL={signatureImageURL}
+          onOpenModal={() => setIsSignatureModalOpen(true)}
+          isOpen={isSignatureModalOpen}
+          onCancel={() => setIsSignatureModalOpen(false)}
+          label={t("personalInfo.signature.openButton")}
+        />
+      </Form.Item>
+    </Form>
+  );
+};
+
+export default PersonalInformation;

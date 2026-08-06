@@ -1,0 +1,542 @@
+{
+  "steps": {
+    "disclosureAndAuthorization": "Disclosure & Authorization",
+    "personalInfo": "Personal Information",
+    "education": "Education",
+    "previousEmployment": "Previous Employment",
+    "references": "References",
+    "militaryService": "Military Service",
+    "backgroundCheck": "Background Check",
+    "disclaimer": "Disclaimer",
+    "floridaAgreement": "Florida Non-Compete",
+    "directDeposit": "Direct Deposit"
+  },
+  "stepHeadings": {
+    "disclosureAndAuthorization": "DIVULGACIÓN Y AUTORIZACIÓN PARA OBTENER INFORMES DEL CONSUMIDOR Y/O INFORMES DE INVESTIGACIÓN DEL CONSUMIDOR",
+    "authorizationToObtain": "AUTORIZACIÓN PARA OBTENER INFORMES DEL CONSUMIDOR Y/O INFORMES DE INVESTIGACIÓN DEL CONSUMIDOR",
+    "policyTopLeftLines": [
+      "INFORMACIÓN AL CONTRATISTA INDEPENDIENTE SOBRE LA ADQUISICIÓN DE UN INFORME DEL CONSUMIDOR"
+    ],
+    "employmentJobApplication": "EMPLEO / SOLICITUD DE EMPLEO",
+    "personalInformation": "INFORMACIÓN PERSONAL",
+    "employmentEligibility": "ELEGIBILIDAD LABORAL",
+    "education": "EDUCACIÓN",
+    "previousEmployment": "EMPLEO ANTERIOR",
+    "references": "REFERENCIAS",
+    "militaryService": "SERVICIO MILITAR",
+    "backgroundCheckConsent": "CONSENTIMIENTO DE VERIFICACIÓN DE ANTECEDENTES",
+    "disclaimer": "DESCARGO DE RESPONSABILIDAD",
+    "floridaNonCompeteAgreement": "ACUERDO DE NO COMPETENCIA DE FLORIDA",
+    "employeeDirectDepositAuthorization": "AUTORIZACIÓN DE DEPÓSITO DIRECTO DEL EMPLEADO"
+  },
+  "modal": {
+    "title": "⚠️Formulario incompleto",
+    "body": "🚨Por favor, complete todos los campos obligatorios antes de continuar con el siguiente paso",
+    "ok": "De acuerdo"
+  },
+  "buttons": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "submit": "Submit Application"
+  },
+  "messages": {
+    "submitSuccess": "Form submitted successfully!",
+    "submitUnexpected": "Unexpected response from the server.",
+    "submitIncomplete": "Please complete the final step before submitting.",
+    "submitFailed": "Submission failed! Please check your inputs."
+  },
+  "personalInfo": {
+    "fields": {
+      "firstName": "Nombre",
+      "middleName": "Segundo nombre",
+      "lastName": "Apellido",
+      "streetAddress": "Dirección",
+      "aptSuite": "Apartamento/Suite",
+      "city": "Ciudad",
+      "state": "Estado",
+      "zipCode": "Código postal",
+      "dateOfBirth": "Fecha de nacimiento",
+      "dateAvailable": "Fecha de disponible",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "ssn": "Número de Seguro Social",
+      "position": "Puesto solicitado",
+      "desiredPay": "Sueldo deseado"
+    },
+    "validation": {
+      "requiredTemplate": "Por favor, ingrese su {field}!",
+      "phoneRequired": "Por favor, ingrese su número de teléfono!",
+      "phonePattern": "El número de teléfono debe contener exactamente 10 dígitos!",
+      "emailFormat": "Por favor, introduzca una dirección de correo electrónico válida."
+    },
+    "employmentType": {
+      "label": "Empleo Deseado",
+      "required": "Por favor, seleccione al menos un tipo de empleo!",
+      "options": ["Tiempo Completo", "Tiempo Parcial", "Temporal"]
+    },
+    "signature": {
+      "label": "Firma",
+      "required": "Se requiere firma!",
+      "openButton": "Abrir firma al máximo"
+    }
+  },
+  "disclosureAndAuthorization": {
+    "paragraphs": [
+      "Esta es una divulgación y autorización para que Social Sanitation (la \"Empresa\") y sus empleados, agentes y representantes obtengan uno o más informes de consumo y/o informes de investigación sobre usted en relación con su colaboración con la Empresa. Puede obtener un informe de consumo y/o un informe de investigación sobre usted en cualquier momento durante el proceso de solicitud o durante su colaboración con la Empresa.",
+      "Un informe del consumidor es una comunicación escrita, oral o de otro tipo, realizada por una agencia de informes del consumidor, que podría afectar su solvencia, capacidad crediticia, reputación, características personales o estilo de vida, y que se utiliza o se espera utilizar o recopilar, total o parcialmente, para influir en la toma de decisiones laborales sobre usted. Dicha información puede incluir, por ejemplo, antecedentes penales, historial de conducción y cualquier otro registro pertinente, en la medida en que lo permita la ley. Un informe de investigación del consumidor es una comunicación escrita, oral o de otro tipo que realiza una agencia de informes del consumidor, con información obtenida mediante entrevistas personales con vecinos, amigos y socios, que refleje su carácter, reputación general, características personales o estilo de vida. Esta información se utiliza, o se espera que se utilice o recopile, total o parcialmente, para influir en la toma de decisiones laborales sobre usted. Si lo solicita por escrito, la Compañía le proporcionará una información completa y precisa sobre la naturaleza y el alcance de la investigación solicitada. Se adjunta un resumen de sus derechos bajo la Ley de Informes de Crédito Justos."
+    ]
+  },
+  "authorizationToObtain": {
+    "intro": "Según la Ley de Informes Crediticios Justos (Fair Credit Reporting Act), para que la Compañía pueda obtener un informe del consumidor o un informe de investigación sobre usted para fines de empleo o asociación, necesitamos su autorización por escrito. Al firmar a continuación, usted autoriza a la Compañía y a sus empleados, agentes y representantes a obtener informes del consumidor o informes de investigación sobre usted durante el proceso de solicitud o durante su empleo o asociación con la Compañía.",
+    "signatureLabel": "Firma",
+    "signatureRequired": "Se requiere firma.",
+    "printedNameLabel": "Nombre en letra impresa",
+    "printedNamePlaceholder": "Escriba su nombre",
+    "printedNameRequired": "Nombre en letra impresa!",
+    "dateLabel": "Fecha",
+    "dateRequired": "Fecha!",
+    "enclosures": "Anexos: Resumen de sus derechos bajo la Ley de Informes de Crédito Justos"
+  },
+  "policy": {
+    "paragraphs": [
+      "En relación con su solicitud como Contratista Independiente, podríamos obtener un Informe de Investigación de Antecedentes y/o un Informe de Antecedentes sobre usted como parte del proceso de evaluación de su candidatura. En caso de que la información del informe se utilice total o parcialmente para tomar una decisión adversa con respecto a nuestra posible colaboración, antes de tomar dicha decisión, le proporcionaremos una copia del informe del consumidor y una descripción por escrito de sus derechos bajo la Ley Federal de Informes de Crédito Justos.",
+      "La Ley de Informes Crediticios Justos le otorga derechos específicos al tratar con las agencias de informes crediticios. Recibirá un resumen de estos derechos junto con este documento.",
+      "Al firmar a continuación, nos autoriza a obtener un informe crediticio o un informe de investigación sobre usted para considerarlo como contratista independiente. La información solicitada se utiliza exclusivamente para la verificación de antecedentes precontractual con el fin de obtener resultados precisos. El informe crediticio puede incluir, entre otros, antecedentes penales, verificación de empleo y educación, y registro de conducir. Solo se obtendrá un informe crediticio con su historial financiero personal para fines permitidos y para considerar empleos que cumplan con criterios específicos."
+    ],
+    "applicantName": {
+      "label": "Nombre del solicitante (nombre legal completo)",
+      "placeholder": "Ingrese su nombre legal completo",
+      "required": "Ingrese su nombre legal completo!"
+    },
+    "applicantAddress": {
+      "label": "Dirección del solicitante",
+      "placeholder": "Ingrese su dirección",
+      "required": "Por favor, ingrese su dirección!"
+    },
+    "city": {
+      "label": "Ciudad",
+      "placeholder": "Ingrese su ciudad",
+      "required": "Por favor, ingrese su ciudad!"
+    },
+    "state": {
+      "label": "Estado",
+      "placeholder": "Ingrese su Estado",
+      "required": "Por favor ingrese su Estado!"
+    },
+    "zip": {
+      "label": "Código postal",
+      "placeholder": "Ingrese su Código postal",
+      "required": "Por favor ingrese su Código postal!"
+    },
+    "signature1": { "label": "Firma", "required": "Se requiere firma." },
+    "ssn": {
+      "label": "Número de Seguro Social",
+      "placeholder": "Ingrese su número de Seguro Social",
+      "required": "Por favor, ingrese su número de Seguro Social!"
+    },
+    "dob": {
+      "label": "Fecha de nacimiento",
+      "required": "Por favor, ingrese su Fecha de nacimiento!"
+    },
+    "eeocNote": "La EEOC establece que, a los efectos de las investigaciones previas al empleo, en virtud de la Ley contra la Discriminación por Edad en el Empleo de 1967, Sección 1625.5, \"Una solicitud por parte de un empleador de información como 'Fecha de nacimiento' o 'Edad indicada' en un formulario de solicitud de empleo no es, en sí misma, una violación de la Ley\".",
+    "licenseNumber": {
+      "label": "Número de licencia de conducir",
+      "placeholder": "Ingrese su número de licencia de conducir",
+      "required": "¡Por favor, ingrese su número de licencia de conducir!"
+    },
+    "licenseState": {
+      "label": "Estado",
+      "placeholder": "Ingrese su estado",
+      "required": "¡Por favor, ingrese su estado!"
+    },
+    "toAllApplicants": "A todos los solicitantes:",
+    "infoUseNote": "La información solicitada anteriormente se utiliza para ayudar en la realización de una investigación de antecedentes. Esta información se mantendrá en un archivo de acceso limitado, separado de su solicitud. La información será utilizada únicamente con el propósito de identificación al realizar la investigación de antecedentes.",
+    "rightsReceivedStatement": "He recibido una copia de mi Resumen de Derechos conforme a la Ley de Informe Justo de Crédito (Fair Credit Reporting Act).",
+    "signature2": { "label": "Firma", "required": "Se requiere firma." }
+  },
+  "employmentEligibility": {
+    "legallyEligible": {
+      "label": "¿TIENE AUTORIZACIÓN LEGAL PARA TRABAJAR EN EE. UU.?",
+      "required": "¡Por favor, seleccione una opción!"
+    },
+    "workedBefore": {
+      "label": "¿HA TRABAJADO ANTERIORMENTE PARA ESTE EMPLEADOR?",
+      "required": "¡Por favor, seleccione una opción!"
+    },
+    "employmentDates": {
+      "label": "SI LA RESPUESTA ES SÍ, INDIQUE LAS FECHAS DE INICIO Y FIN:",
+      "required": "¡Por favor, seleccione las fechas de inicio y fin!"
+    },
+    "convictedFelony": {
+      "label": "¿HA SIDO CONDENADO POR UN DELITO GRAVE (FELONÍA)?",
+      "required": "¡Por favor, seleccione una opción!"
+    },
+    "felonyExplanation": {
+      "label": "SI LA RESPUESTA ES SÍ, POR FAVOR EXPLIQUE:",
+      "required": "¡Por favor, proporcione una explicación!",
+      "placeholder": "Proporcione detalles..."
+    },
+    "yes": "SÍ",
+    "no": "NO"
+  },
+  "education": {
+    "placeholderTemplate": "Ingrese {field}",
+    "yes": "Sí",
+    "no": "No",
+    "sections": {
+      "highSchool": {
+        "title": "Escuela Secundaria",
+        "fields": {
+          "highSchoolName": "Nombre de la escuela",
+          "highSchoolCity": "Ciudad",
+          "highSchoolState": "Estado",
+          "highSchoolDuration": "Desde - Hasta",
+          "highSchoolGraduate": "¿Graduado?",
+          "highSchoolDiploma": "Diploma"
+        }
+      },
+      "college": {
+        "title": "Colegio",
+        "fields": {
+          "collegeName": "Nombre del Colegio",
+          "collegeCity": "Ciudad",
+          "collegeState": "Estado",
+          "collegeDuration": "Desde - Hasta",
+          "collegeGraduate": "¿Graduado?",
+          "collegeDegree": "La Licenciatura"
+        }
+      },
+      "other": {
+        "title": "Otra Educación",
+        "fields": {
+          "otherEducation": "Nombre de la institución",
+          "otherCity": "Ciudad",
+          "otherState": "Estado",
+          "otherDuration": "Desde - Hasta",
+          "otherDegree": "Licenciatura/Certificación"
+        }
+      }
+    }
+  },
+  "references": {
+    "heading": "Referencia {index}",
+    "firstName": {
+      "label": "Nombre",
+      "placeholder": "Ingrese el nombre",
+      "required": "Por favor, introduzca el nombre."
+    },
+    "lastName": {
+      "label": "Apellido",
+      "placeholder": "Ingrese el apellido",
+      "required": "Por favor, introduzca el apellido."
+    },
+    "relationship": {
+      "label": "Relación",
+      "placeholder": "Ingrese la relación",
+      "required": "Por favor, indique la relación."
+    },
+    "company": {
+      "label": "Empresa",
+      "placeholder": "Nombre de la empresa",
+      "required": "Por favor, introduzca el nombre de la empresa."
+    },
+    "title": {
+      "label": "Cargo",
+      "placeholder": "Ingrese el cargo",
+      "required": "Por favor, introduzca el cargo."
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "Dirección de correo electrónico",
+      "required": "Por favor, introduzca un correo válido."
+    },
+    "phone": {
+      "label": "Teléfono",
+      "placeholder": "Ingrese el número de teléfono",
+      "required": "Por favor, introduzca el número de teléfono.",
+      "pattern": "El número de teléfono debe tener exactamente 10 dígitos."
+    },
+    "removeButton": "Eliminar referencia",
+    "addButton": "Agregar otra referencia"
+  },
+  "previousEmployment": {
+    "hasJob": {
+      "label": "¿Ha tenido algún trabajo anterior?",
+      "required": "¡Por favor, seleccione una opción!"
+    },
+    "yes": "Sí",
+    "no": "No",
+    "heading": "Empleador {index}",
+    "companyName": {
+      "label": "Empresa / Particular",
+      "placeholder": "Ingrese empresa o nombre del particular",
+      "required": "¡Por favor, ingrese el nombre de la empresa!"
+    },
+    "email": {
+      "label": "Correo electrónico",
+      "placeholder": "Ingrese correo electrónico",
+      "required": "¡Por favor, ingrese un correo electrónico válido!"
+    },
+    "address": {
+      "label": "Dirección",
+      "placeholder": "Ingrese dirección",
+      "required": "¡Por favor, ingrese la dirección!"
+    },
+    "city": {
+      "label": "Ciudad",
+      "placeholder": "Ingrese ciudad",
+      "required": "¡Por favor, ingrese la ciudad!"
+    },
+    "state": {
+      "label": "Estado",
+      "placeholder": "Ingrese estado",
+      "required": "¡Por favor, ingrese el estado!"
+    },
+    "zip": {
+      "label": "Código Postal",
+      "placeholder": "Ingrese código postal",
+      "required": "¡Por favor, ingrese el código postal!"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "placeholder": "Ingrese número de teléfono",
+      "required": "¡Por favor, ingrese el número de teléfono!",
+      "pattern": "¡El número debe tener exactamente 10 dígitos!"
+    },
+    "jobTitle": {
+      "label": "Título del puesto",
+      "placeholder": "Ingrese título del puesto",
+      "required": "¡Por favor, ingrese el título del puesto!"
+    },
+    "duration": {
+      "label": "Período de empleo",
+      "required": "¡Por favor, seleccione el período de empleo!"
+    },
+    "responsibilities": {
+      "label": "Responsabilidades",
+      "placeholder": "Ingrese responsabilidades",
+      "required": "¡Por favor, ingrese las responsabilidades del puesto!"
+    },
+    "reasonForLeaving": {
+      "label": "Motivo de salida",
+      "placeholder": "Ingrese motivo de salida",
+      "required": "¡Por favor, ingrese el motivo de salida!"
+    },
+    "removeButton": "Eliminar empleador",
+    "addButton": "Agregar otro empleador"
+  },
+  "militaryService": {
+    "veteranLabel": "¿ES USTED VETERANO?",
+    "veteranRequired": "¡Por favor seleccione una opción!",
+    "yes": "Sí",
+    "no": "No",
+    "branch": {
+      "label": "Rama del servicio",
+      "placeholder": "Ingrese rama del servicio",
+      "required": "¡Por favor ingrese la rama del servicio!"
+    },
+    "servicePeriod": {
+      "label": "Período de servicio (Desde - Hasta)",
+      "required": "¡Por favor seleccione el período de servicio!"
+    },
+    "rank": {
+      "label": "Rango al ser dado de baja",
+      "placeholder": "Ingrese rango",
+      "required": "¡Por favor ingrese el rango!"
+    },
+    "dischargeType": {
+      "label": "Tipo de baja",
+      "placeholder": "Ingrese tipo de baja",
+      "required": "¡Por favor ingrese el tipo de baja!"
+    },
+    "dischargeExplanation": {
+      "label": "Si no fue honorable, explique",
+      "placeholder": "Proporcione detalles...",
+      "required": "¡Por favor proporcione una explicación!"
+    }
+  },
+  "stepper": {
+    "progressLabel": "Paso {current} de {total}"
+  },
+  "backgroundCheck": {
+    "label": "Si se lo preguntan, ¿está dispuesto a aceptar una verificación de antecedentes?",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "disclaimer": {
+    "paragraphs": [
+      "El solicitante comprende que este es un empleador que ofrece igualdad de oportunidades y está comprometido con la excelencia a través de la diversidad. Para garantizar la aceptación de esta solicitud, por favor, complete la solicitud en su totalidad para que sea considerada.",
+      "Por favor, complete cada sección, INCLUSO si decide adjuntar un currículum vitae.",
+      "Yo, el solicitante, certifico que mis respuestas son verdaderas y honestas según mi leal saber y entender. Si esta solicitud me lleva a un empleo, entiendo que cualquier información falsa o engañosa en mi solicitud o entrevista podría resultar en mi despido."
+    ],
+    "signatureLabel": "Firma",
+    "signatureRequired": "Se requiere firma.",
+    "dateLabel": "Fecha",
+    "dateRequired": "¡La fecha es obligatoria!",
+    "printedNameLabel": "Nombre impreso",
+    "printedNamePlaceholder": "Ingrese su nombre",
+    "printedNameRequired": "¡Se requiere el nombre en letra de molde!"
+  },
+  "floridaAgreement": {
+    "purpose": {
+      "heading": "Objetivo",
+      "intro": "Este acuerdo, al ser refrendado a continuación, constituirá un acuerdo con respecto a cierta información confidencial y de propiedad exclusiva y secretos comerciales (\u201cInformación Confidencial\u201d) relacionados con el negocio de Social Sanitation Commercial Cleaning Solutions LLC en adelante denominada la \u201cCompañía\u201d y",
+      "companyNameTitlePlaceholder": "Nombre y cargo",
+      "companyNameTitleRequired": "¡Por favor ingrese el nombre y el cargo!",
+      "middle": "en adelante denominado el \u201cDestinatario\u201d (colectivamente denominados las \u201cPartes\u201d), a partir de la fecha de ejecución por la Compañía (la \u201cFecha de entrada en vigor\u201d).",
+      "paragraph2": "El Receptor deberá mantener estrictamente la confidencialidad de la Información Privilegiada. Esta información podrá ser compartida entre las Partes para su uso en la definición del alcance, la estimación y la ejecución de proyectos, así como para las prácticas comerciales habituales de la Compañía y sus clientes."
+    },
+    "nonCompete": {
+      "heading": "No Competencia/Divulgación",
+      "intro": "Durante la permanencia del Destinatario en la Compañía y el Plazo establecido en la Sección 3, el Destinatario no podrá:",
+      "checkAllThatApply": "(Marque todas las opciones que correspondan)",
+      "items": [
+        {
+          "bold": "Prácticas Comerciales",
+          "text": "- Ofrecer productos o servicios idénticos o similares a los de la industria, o representar de cualquier otra forma a cualquier otra empresa de naturaleza similar a la de la Compañía sin consentimiento por escrito. Se entiende que el Receptor representará exclusivamente a la Compañía durante su mandato, salvo notificación por escrito de cualquiera de las Partes."
+        },
+        {
+          "bold": "Clientes/Consumidores",
+          "text": "- Participar, directa o indirectamente, en cualquier actividad comercial similar de la Compañía al estar en contacto con sus clientes actuales o anteriores. El Destinatario tampoco podrá captar clientes de la Compañía para beneficio de un tercero que se dedique a una actividad comercial similar a la de la Compañía."
+        },
+        {
+          "bold": "Competidor(es) General(es)",
+          "text": "- Participar en una actividad comercial, ya sea pagada o no, con un competidor de la empresa que proporcione un producto o servicio similar."
+        },
+        {
+          "bold": "Competidores Específicos",
+          "text": "- Realizar actividades comerciales, pagadas o no, con las siguientes empresas o individuos:"
+        },
+        {
+          "bold": "Empleados",
+          "text": "- Contratar, trabajar junto o asociarse con cualquier empleado actual, personal de ventas o exempleados o personal de ventas de la empresa."
+        }
+      ],
+      "specificCompetitorPlaceholder": "Ingrese el nombre de la empresa o individuo(s)",
+      "specificCompetitorRequired": "Por favor, ingrese el nombre del competidor!"
+    },
+    "timePeriod": {
+      "heading": "Período de Tiempo",
+      "intro": "El receptor ordena y garantiza por el",
+      "placeholder": "Ingrese el período de tiempo",
+      "required": "Por favor, ingrese el período de tiempo!",
+      "outro": "período posterior a la fecha de entrada en vigor de este acuerdo."
+    },
+    "purchaseOption": {
+      "heading": "Opción de Compra",
+      "body": "La Compañía no permite que el Destinatario quede liberado de responsabilidad de este acuerdo por ningún monto monetario o motivo de ningún tipo."
+    },
+    "jurisdiction": {
+      "heading": "Jurisdicción",
+      "intro": "La jurisdicción del presente acuerdo cubrirá las áreas de",
+      "placeholder": "Seleccione la jurisdicción",
+      "required": "Por favor, seleccione una jurisdicción!"
+    },
+    "confidentialInformation": {
+      "heading": "Información confidencial",
+      "body": "Tal como se utiliza en el presente documento, \u201cInformación Confidencial\u201d significará toda información técnica y no técnica proporcionada por la Compañía, incluyendo, entre otros: datos u otra información de propiedad exclusiva relacionada con productos, invenciones, planes, métodos, procesos, conocimientos técnicos, trabajos de desarrollo o experimentales, programas informáticos, bases de datos, autoría, listas de clientes (incluidos los nombres, hábitos de compra o prácticas de cualquier cliente), los nombres de vendedores o proveedores, métodos de marketing, informes, análisis, planes de negocios, información financiera, información estadística o cualquier otro tema relacionado con cualquier negocio de la Compañía o cualquiera de sus respectivos clientes, consultores o licenciatarios que se divulgue al Destinatario según los términos de este Acuerdo."
+    },
+    "permittedDisclosure": {
+      "heading": "Divulgación permitida",
+      "intro": "La información confidencial no incluye información que:",
+      "items": [
+        "Haya llegado a ser de conocimiento público general sin mediar acto ilícito del Destinatario;",
+        "Haya sido recibida legítimamente por el Destinatario de un tercero sin restricción de divulgación y sin violación de una obligación de confidencialidad que recaiga directa o indirectamente sobre el Destinatario;",
+        "Ha sido aprobado para su divulgación al público en general mediante autorización escrita de la Compañía;",
+        "Se ha divulgado de conformidad con el requisito de una agencia gubernamental o un tribunal de justicia sin restricciones similares u otras protecciones contra la divulgación pública; o",
+        "Ha sido desarrollado independientemente por el Destinatario sin utilizar, directa o indirectamente, la Información Confidencial de la Compañía."
+      ]
+    },
+    "confidentiality": {
+      "heading": "Confidencialidad",
+      "body": "El Receptor reconoce que tendrá acceso a la Información Confidencial de la Compañía y se compromete a no divulgar, revelar ni comunicar, directa ni indirectamente, dicha Información a terceros, salvo que se requiera en el curso de cualquier relación comercial formal o trato con la Compañía y, en cualquier caso, únicamente con la aprobación previa por escrito de la Compañía. El Receptor reconoce que no se le otorga ninguna licencia sobre la Información Confidencial, implícita o de otro modo, en virtud del presente Acuerdo. Asimismo, el Receptor reconoce que solo podrá utilizar la Información Confidencial en relación con sus relaciones comerciales con la Compañía y para ningún otro fin sin el consentimiento previo por escrito de esta. El Receptor también acepta que toda la Información Confidencial, incluyendo, entre otros, cualquier documento, archivo, informe, cuaderno, muestra, lista, correspondencia, software u otros registros escritos o gráficos proporcionados por la Compañía o producidos con la Información Confidencial de la Compañía, se mantendrá estrictamente confidencial y se devolverá a solicitud de la Compañía. El presente Acuerdo se mantendrá vigente mientras las Partes colaboren formalmente. Las condiciones del presente Acuerdo se mantendrán vigentes tras su terminación."
+    },
+    "consultantsEmployeesBound": {
+      "heading": "Consultores y empleados vinculados",
+      "body": "__PENDING_SPANISH_TRANSLATION__ Recipient agrees to disclose the Confidential Information to any agents, affiliates, directors, officers or any other employees (collectively, the \u201cEmployees\u201d) solely on a need-to-know basis and represents that such Employees have signed appropriate non-disclosure agreements or taken appropriate measures imposing on such Employees a duty to third parties (1) to hold any third party proprietary information received by such Employees in the strictest confidence, (2) not to disclose such third party Confidential Information to any other third party, and (3) not to use such Confidential Information for the benefit of anyone other than to whom it belongs, without the prior express written authorization of the Company."
+    },
+    "returnOfMaterials": {
+      "heading": "Devolución de Materiales",
+      "body": "Tras la rescisión o vencimiento del Acuerdo, o a solicitud escrita de la Compañía, el Receptor deberá devolver sin demora a la Compañía todos los documentos y demás materiales tangibles que representen la Información Confidencial de la Compañía, así como todas las copias de los mismos. La Compañía notificará inmediatamente al Receptor si detecta cualquier pérdida o divulgación no autorizada de la Información Confidencial."
+    },
+    "remedies": {
+      "heading": "Remedios",
+      "body": "Si el Receptor incumple alguna de las disposiciones de este Acuerdo mediante uso no autorizado o divulgación de la Información Confidencial a un tercero no autorizado en detrimento o daño de la Compañía, el Receptor se compromete a reembolsar a la Compañía cualquier pérdida o gasto en que incurra como resultado de dicho uso, divulgación no autorizada o intento de divulgación, incluyendo, entre otros, las costas judiciales y los honorarios razonables de abogados en que incurra la Compañía para hacer cumplir las disposiciones del presente. El Receptor acepta además que cualquier uso o divulgación no autorizados de la Información Confidencial resultará en un daño irreparable para la Compañía y que esta tendrá derecho a que cualquier tribunal de jurisdicción competente dicte una orden de restricción temporal o un mandato judicial preliminar contra dicho uso o divulgación no autorizados por parte del Receptor sin necesidad de depositar una fianza. Sin embargo, dichos recursos no se considerarán los únicos recursos por cualquier incumplimiento de este Acuerdo, sino que se sumarán a todos los demás recursos disponibles por ley o equidad."
+    },
+    "choiceOfLaw": {
+      "heading": "Elección de la ley",
+      "body": "Este Acuerdo se regirá e interpretará de conformidad con las leyes del Estado de Florida, sin tener en cuenta sus principios de conflicto de leyes. Cualquier disputa que surja o esté relacionada con el objeto de este Acuerdo se resolverá en un tribunal de la jurisdicción correspondiente a la sede principal de la Compañía, y las partes se someten por la presente a la jurisdicción personal y competencia de dichos tribunales. Si alguna disposición de este Acuerdo o sus aplicaciones se considera inválida, ilegal o inaplicable en cualquier aspecto, la validez, legalidad o aplicabilidad de cualquier otra disposición o aplicación del presente Acuerdo no se verá afectada ni perjudicada en modo alguno."
+    },
+    "entireAgreement": {
+      "heading": "Acuerdo completo",
+      "paragraph1": "Este Acuerdo representa la totalidad del acuerdo entre las partes y solo podrá ser modificado mediante la firma de ambas partes.",
+      "paragraph2Intro": "En fe de lo cual, las partes han acordado y firmado este Acuerdo de No Competencia/No Divulgación en el",
+      "datePlaceholder": "Seleccione la fecha",
+      "dateRequired": "Por favor, seleccione una fecha!",
+      "companyColumnHeading": "La Empresa",
+      "companyLegalName": "Social Sanitation Commercial Cleaning Solutions LLC",
+      "recipientColumnHeading": "El Destinatario",
+      "recipientNameLabel": "Nombre",
+      "recipientNameRequired": "Requerido",
+      "signatureLabel": "Firma",
+      "signatureRequired": "Se requiere firma."
+    }
+  },
+  "directDeposit": {
+    "employeeNamePlaceholder": "Ingrese nombre",
+    "employeeNameRequired": "¡Por favor ingrese su nombre!",
+    "introBeforeName": "Yo, [empleado]",
+    "introAfterName": ", por la presente:",
+    "item1Pre": "autorizo a mi empleador,",
+    "companyLegalName": "Social Sanitation Commercial Cleaning Solutions LLC",
+    "item1Post": "y a sus agentes, incluidas las instituciones financieras, a iniciar abonos electrónicos y, de ser necesario, débitos y ajustes por cualquier abono erróneo en mis cuentas de cheques o de ahorros que se indican a continuación. Esta autorización permanecerá vigente hasta que informe por escrito a mi empleador sobre mi deseo de cancelarla y este haya tenido tiempo razonable para hacerlo. Entiendo que debo contactar a mi banco para verificar el recibo de los fondos.",
+    "items": [
+      "revisar la(s) cuenta(s) bancaria(s) de depósito directo como se indica a continuación.",
+      "cancelar por completo el depósito directo de mi nómina. Esta cancelación entrará en vigor de inmediato y permanecerá vigente hasta que la Compañía reciba mi notificación por escrito autorizando el depósito automático de mi nómina. Reconozco que a partir de ahora recibiré los cheques de nómina que debo depositar o cobrar."
+    ],
+    "signatureLabel": "Firma",
+    "signatureRequired": "Se requiere firma.",
+    "dateLabel": "Fecha",
+    "dateRequired": "¡La fecha es obligatoria!",
+    "bank": {
+      "bankName": {
+        "columnTitle": "Nombre del banco",
+        "label": "Nombre del banco",
+        "placeholder": "Ingrese nombre del banco",
+        "required": "Campo obligatorio"
+      },
+      "accountType": {
+        "columnTitle": "Tipo de cuenta",
+        "label": "Tipo de cuenta",
+        "required": "Seleccione tipo de cuenta",
+        "checking": "Cheques",
+        "savings": "Ahorros"
+      },
+      "routingNumber": {
+        "columnTitle": "Número de ruta",
+        "label": "Número de ruta",
+        "placeholder": "Número de ruta",
+        "required": "Campo obligatorio"
+      },
+      "accountNumber": {
+        "columnTitle": "Número de cuenta",
+        "label": "Número de cuenta",
+        "placeholder": "Número de cuenta",
+        "required": "Campo obligatorio"
+      },
+      "amount": {
+        "columnTitle": "Cantidad",
+        "label": "Cantidad",
+        "placeholder": "Cantidad",
+        "required": "Campo obligatorio"
+      },
+      "percentage": {
+        "columnTitle": "Porcentaje",
+        "label": "Porcentaje",
+        "placeholder": "Porcentaje",
+        "required": "Campo obligatorio"
+      }
+    },
+    "addRowButton": "Añadir fila"
+  }
+}

@@ -1,0 +1,104 @@
+.privacy-policy {
+  font-family: Arial, sans-serif;
+  color: #595959;
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 26px;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: 19px;
+    color: #000000;
+    margin-top: 32px;
+    margin-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 17px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0 0 12px;
+  }
+
+  a {
+    color: #3030f1;
+    word-break: break-word;
+  }
+
+  .privacy-subtitle {
+    color: #595959;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .privacy-in-short {
+    font-style: italic;
+  }
+
+  ul {
+    list-style-type: square;
+    padding-left: 24px;
+
+    ul {
+      list-style-type: circle;
+
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+
+  ol {
+    padding-left: 24px;
+
+    li {
+      font-family: Arial, sans-serif;
+    }
+  }
+
+  .privacy-toc {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin-bottom: 6px;
+    }
+  }
+
+  .privacy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+
+    th,
+    td {
+      border: 1px solid #000000;
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f5f5f5;
+    }
+
+    .privacy-table-collected {
+      text-align: center;
+    }
+  }
+
+  address {
+    font-style: normal;
+    margin-top: 8px;
+  }
+}
