@@ -60,7 +60,7 @@ const Home = () => {
             className="home-btn-primary"
             onClick={() => navigate("/hiring-form")}
           >
-            Start Application <IoIosArrowForward />
+            Start Application (Iniciar Solicitud) <IoIosArrowForward />
           </Button>
         </div>
         <div className="home-action-card">
