@@ -1,5 +1,14 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
-import { Form, Input, DatePicker, Checkbox, Row, Col, Space } from "antd";
+import {
+  Form,
+  Input,
+  DatePicker,
+  Checkbox,
+  Row,
+  Col,
+  Space,
+  Select,
+} from "antd";
 import type { FormInstance, Rule } from "antd/es/form";
 import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
@@ -7,8 +16,10 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 import SignatureInput from "@/components/common/SignatureInput";
 import {
   personalInfoFields,
+  countryOptions,
   type FieldConfig,
 } from "@/config/personalInfoFields";
+import { toNameOptions, useLocationOptions } from "@/hooks/useCountryStates";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type {
@@ -89,16 +100,55 @@ useEffect(() => {
     employmentType: formData.personalInfo?.employmentType || [],
   });
 }, [formData.personalInfo]);
+const { states, statesLoading, cities, citiesLoading } = useLocationOptions(
+  formData.personalInfo?.country,
+  formData.personalInfo?.state
+);
+
+// Options for each dropdown field, plus the message shown while its parent
+// (country -> state -> city) hasn't been picked yet.
+const selectFields: Record<
+  string,
+  {
+    options: { name: string }[];
+    loading?: boolean;
+    emptyMessage?: string;
+  }
+> = {
+  country: { options: countryOptions },
+  state: {
+    options: states,
+    loading: statesLoading,
+    emptyMessage: !formData.personalInfo?.country
+      ? t("personalInfo.validation.selectCountryFirst")
+      : undefined,
+  },
+  city: {
+    options: cities,
+    loading: citiesLoading,
+    emptyMessage: !formData.personalInfo?.state
+      ? t("personalInfo.validation.selectStateFirst")
+      : undefined,
+  },
+};
+
 const handleChange = (
   changedValues: Partial<PersonalInfo>,
   allValues: Partial<PersonalInfo>
 ) => {
+  // A new country invalidates the state and city; a new state invalidates the city.
+  const resets: Partial<PersonalInfo> = {};
+  if ("country" in changedValues) resets.state = null;
+  if ("country" in changedValues || "state" in changedValues) resets.city = null;
+  if (Object.keys(resets).length) form.setFieldsValue(resets);
+
   setFormData((prev) => ({
     ...prev,
     personalInfo: {
       ...prev.personalInfo,
       ...allValues,
       ...changedValues,
+      ...resets,
     },
   }));
 };
@@ -148,7 +198,26 @@ const handleChange = (
                     }
                   : {})}
               >
-                {field.type === "text" || field.type === "email" ? (
+                {field.type === "select" ? (
+                  <Select
+                    placeholder={label}
+                    showSearch={{ optionFilterProp: "label" }}
+                    loading={selectFields[field.name]?.loading}
+                    notFoundContent={selectFields[field.name]?.emptyMessage}
+                    options={toNameOptions(selectFields[field.name]?.options ?? [])}
+                    // Needed like the other inputs here: this step shares `form` with
+                    // EmploymentEligibility, whose <Form> replaces our onValuesChange.
+                    onChange={(value: string) =>
+                      handleChange(
+                        { [field.name]: value } as Partial<PersonalInfo>,
+                        {
+                          ...formData.personalInfo,
+                          [field.name]: value,
+                        } as Partial<PersonalInfo>
+                      )
+                    }
+                  />
+                ) : field.type === "text" || field.type === "email" ? (
                   <Input
                     type={field.type}
                     placeholder={label}

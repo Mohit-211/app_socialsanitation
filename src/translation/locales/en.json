@@ -65,6 +65,7 @@
       "city": "City",
       "state": "State",
       "zipCode": "Zip Code",
+      "country": "Country",
       "dateOfBirth": "Date of Birth",
       "dateAvailable": "Date Available",
       "email": "E-Mail",
@@ -77,7 +78,9 @@
       "requiredTemplate": "Please enter {field}!",
       "phoneRequired": "Please enter your phone number!",
       "phonePattern": "Phone number must contain exactly 10 digits!",
-      "emailFormat": "Please enter a valid email address."
+      "emailFormat": "Please enter a valid email address.",
+      "selectCountryFirst": "Please select a country first",
+      "selectStateFirst": "Please select a state first"
     },
     "employmentType": {
       "label": "Employment Desired",
@@ -126,18 +129,23 @@
     },
     "city": {
       "label": "City",
-      "placeholder": "Enter your city",
-      "required": "Please enter your city!"
+      "placeholder": "Select your city",
+      "required": "Please select your city!"
     },
     "state": {
       "label": "State",
-      "placeholder": "Enter your state",
-      "required": "Please enter your state!"
+      "placeholder": "Select your state",
+      "required": "Please select your state!"
     },
     "zip": {
       "label": "Zip",
       "placeholder": "Enter your zip code",
       "required": "Please enter your zip code!"
+    },
+    "country": {
+      "label": "Country",
+      "placeholder": "Select your country",
+      "required": "Please select your country!"
     },
     "signature1": {
       "label": "Signature",
@@ -160,8 +168,8 @@
     },
     "licenseState": {
       "label": "State",
-      "placeholder": "Enter your state",
-      "required": "Please enter your state!"
+      "placeholder": "Select your state",
+      "required": "Please select your state!"
     },
     "toAllApplicants": "To All Applicants:",
     "infoUseNote": "The information requested above is used to assist in the completion of a background investigation. The information will be maintained in a limited access file, detached from your application. The information will be used for the sole purpose of identification when conducting a background investigation.",
@@ -195,6 +203,7 @@
   },
   "education": {
     "placeholderTemplate": "Enter {field}",
+    "selectPlaceholderTemplate": "Select {field}",
     "yes": "Yes",
     "no": "No",
     "sections": {
@@ -203,6 +212,7 @@
         "fields": {
           "highSchoolName": "School Name",
           "highSchoolCity": "City",
+          "highSchoolCountry": "Country",
           "highSchoolState": "State",
           "highSchoolDuration": "From - To",
           "highSchoolGraduate": "Graduate?",
@@ -213,8 +223,9 @@
         "title": "College",
         "fields": {
           "collegeName": "College Name",
-          "collegeCity": "City",
+          "collegeCountry": "Country",
           "collegeState": "State",
+          "collegeCity": "City",
           "collegeDuration": "From - To",
           "collegeGraduate": "Graduate?",
           "collegeDegree": "Degree"
@@ -224,8 +235,9 @@
         "title": "Other Education",
         "fields": {
           "otherEducation": "Institution Name",
-          "otherCity": "City",
+          "otherCountry": "Country",
           "otherState": "State",
+          "otherCity": "City",
           "otherDuration": "From - To",
           "otherDegree": "Degree/Certification"
         }
@@ -296,15 +308,20 @@
       "placeholder": "Enter Street Address",
       "required": "Please enter the address!"
     },
+    "country": {
+      "label": "Country",
+      "placeholder": "Select Country",
+      "required": "Please select the country!"
+    },
     "city": {
       "label": "City",
-      "placeholder": "Enter City",
-      "required": "Please enter the city!"
+      "placeholder": "Select City",
+      "required": "Please select the city!"
     },
     "state": {
       "label": "State",
-      "placeholder": "Enter State",
-      "required": "Please enter the state!"
+      "placeholder": "Select State",
+      "required": "Please select the state!"
     },
     "zip": {
       "label": "Zip Code",

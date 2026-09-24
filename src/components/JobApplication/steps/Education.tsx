@@ -1,9 +1,12 @@
 import { useEffect, type Dispatch, type SetStateAction } from "react";
-import { Form, Input, DatePicker, Radio, Row, Col } from "antd";
+import { Form, Input, DatePicker, Radio, Row } from "antd";
 import type { FormInstance } from "antd/es/form";
 import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
- import { educationSections } from "@/config/educationFields";
+import LocationSelects, {
+  type LocationKey,
+} from "@/components/common/LocationSelects";
+import { educationSections } from "@/config/educationFields";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type {
@@ -58,41 +61,42 @@ const Education = ({
           t(`education.sections.${section.key}.fields.${name}`);
         const placeholder = (name: string) =>
           t("education.placeholderTemplate", { field: fieldLabel(name) });
+        const selectPlaceholder = (name: string) =>
+          t("education.selectPlaceholderTemplate", { field: fieldLabel(name) });
 
         return (
           <div key={section.key}>
             <h5>{sectionTitle}</h5>
-            {section.fields.map((field, index, arr) => {
-              const nextField = arr[index + 1];
-
-              if (
-                field.name.includes("City") &&
-                nextField?.name.includes("State")
-              ) {
+            {section.fields.map((field) => {
+              if (field.type === "location" && field.location) {
+                const names = field.location;
+                const byKey = (fn: (name: string) => string) => ({
+                  country: fn(names.country),
+                  state: fn(names.state),
+                  city: fn(names.city),
+                });
                 return (
                   <Row key={field.name} gutter={[16, 16]}>
-                    <Col xs={24} sm={12}>
-                      <Form.Item
-                        label={fieldLabel(field.name)}
-                        name={field.name}
-                      >
-                        <Input placeholder={placeholder(field.name)} />
-                      </Form.Item>
-                    </Col>
-                    <Col xs={24} sm={12}>
-                      <Form.Item
-                        label={fieldLabel(nextField.name)}
-                        name={nextField.name}
-                      >
-                        <Input placeholder={placeholder(nextField.name)} />
-                      </Form.Item>
-                    </Col>
+                    <LocationSelects
+                      form={form}
+                      language={language}
+                      names={names}
+                      labels={byKey(fieldLabel)}
+                      placeholders={byKey(selectPlaceholder)}
+                      onChange={(changed) =>
+                        handleChange(
+                          Object.fromEntries(
+                            Object.entries(changed).map(([key, value]) => [
+                              names[key as LocationKey],
+                              value,
+                            ])
+                          )
+                        )
+                      }
+                    />
                   </Row>
                 );
               }
-
-              // The paired "State" field was already rendered above alongside "City".
-              if (field.name.includes("State")) return null;
 
               return (
                 <Form.Item

@@ -1,9 +1,11 @@
 import { useEffect, useState, type Dispatch, type SetStateAction } from "react";
-import { Col, DatePicker, Form, Input, Row } from "antd";
+import { Col, DatePicker, Form, Input, Row, Select } from "antd";
 import type { FormInstance } from "antd/es/form";
 import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
 import SignatureInput from "@/components/common/SignatureInput";
+import { countryOptions } from "@/config/personalInfoFields";
+import { toNameOptions, useLocationOptions } from "@/hooks/useCountryStates";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type { JobApplicationFormData } from "@/types/jobApplication";
@@ -44,12 +46,26 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
     });
   }, [formData, form]);
 
+  const { states, statesLoading, cities, citiesLoading } = useLocationOptions(
+    formData.policy?.Country,
+    formData.policy?.State
+  );
+
   const handleValuesChange = (
     changedValues: Partial<JobApplicationFormData["policy"]>
   ) => {
+    // A new country invalidates both states and the city; a new state invalidates the city.
+    const resets: Partial<JobApplicationFormData["policy"]> = {};
+    if ("Country" in changedValues) {
+      resets.State = null;
+      resets["License State"] = null;
+    }
+    if ("Country" in changedValues || "State" in changedValues) resets.City = null;
+    if (Object.keys(resets).length) form.setFieldsValue(resets);
+
     setFormData((prev) => ({
       ...prev,
-      policy: { ...prev.policy, ...changedValues },
+      policy: { ...prev.policy, ...changedValues, ...resets },
     }));
   };
 
@@ -124,16 +140,21 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
           </Form.Item>
 
           <Row gutter={[16, 16]}>
-            <Col xs={24} sm={12} md={8}>
+               <Col xs={24} sm={12} md={6}>
               <Form.Item
-                label={t("policy.city.label")}
-                name="City"
-                rules={[{ required: true, message: t("policy.city.required") }]}
+                label={t("policy.country.label")}
+                name="Country"
+                rules={[
+                  { required: true, message: t("policy.country.required") },
+                ]}
               >
-                <Input placeholder={t("policy.city.placeholder")} />
+                <Select
+                  placeholder={t("policy.country.placeholder")}
+                  options={toNameOptions(countryOptions)}
+                />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12} md={8}>
+            <Col xs={24} sm={12} md={6}>
               <Form.Item
                 label={t("policy.state.label")}
                 name="State"
@@ -141,10 +162,40 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
                   { required: true, message: t("policy.state.required") },
                 ]}
               >
-                <Input placeholder={t("policy.state.placeholder")} />
+                <Select
+                  placeholder={t("policy.state.placeholder")}
+                  showSearch={{ optionFilterProp: "label" }}
+                  loading={statesLoading}
+                  notFoundContent={
+                    !formData.policy?.Country
+                      ? t("personalInfo.validation.selectCountryFirst")
+                      : undefined
+                  }
+                  options={toNameOptions(states)}
+                />
               </Form.Item>
             </Col>
-            <Col xs={24} sm={12} md={8}>
+            <Col xs={24} sm={12} md={6}>
+              <Form.Item
+                label={t("policy.city.label")}
+                name="City"
+                rules={[{ required: true, message: t("policy.city.required") }]}
+              >
+                <Select
+                  placeholder={t("policy.city.placeholder")}
+                  showSearch={{ optionFilterProp: "label" }}
+                  loading={citiesLoading}
+                  notFoundContent={
+                    !formData.policy?.State
+                      ? t("personalInfo.validation.selectStateFirst")
+                      : undefined
+                  }
+                  options={toNameOptions(cities)}
+                />
+              </Form.Item>
+            </Col>
+            
+            <Col xs={24} sm={12} md={6}>
               <Form.Item
                 label={t("policy.zip.label")}
                 name="Zip"
@@ -153,6 +204,7 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
                 <Input placeholder={t("policy.zip.placeholder")} />
               </Form.Item>
             </Col>
+         
           </Row>
 
           <Form.Item
@@ -229,9 +281,18 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
               { required: true, message: t("policy.licenseState.required") },
             ]}
           >
-            <Input
+            {/* Uses the states of the Country selected above. */}
+            <Select
               placeholder={t("policy.licenseState.placeholder")}
               style={{ maxWidth: 260 }}
+              showSearch={{ optionFilterProp: "label" }}
+              loading={statesLoading}
+              notFoundContent={
+                !formData.policy?.Country
+                  ? t("personalInfo.validation.selectCountryFirst")
+                  : undefined
+              }
+              options={toNameOptions(states)}
             />
           </Form.Item>
 

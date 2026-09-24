@@ -4,9 +4,10 @@ export interface PersonalInfo {
   lastName: string;
   streetAddress: string;
   aptSuite?: string;
-  city: string;
-  state: string;
+  city: string | null;
+  state: string | null;
   zipCode: string;
+  country: string | null;
   dateOfBirth: string | null;
   dateAvailable: string | null;
   email: string;
@@ -31,14 +32,15 @@ export interface AuthorizationData {
 export interface PolicyData {
   "Applicant's Name"?: string;
   "Applicant's Address"?: string;
-  City?: string;
-  State?: string;
+  City?: string | null;
+  State?: string | null;
   Zip?: string;
+  Country?: string | null;
   signature1?: string | null;
   "Social Security Number"?: string;
   "Date of Birth"?: string | null;
   "Driver's License Number"?: string;
-  "License State"?: string;
+  "License State"?: string | null;
   signature2?: string | null;
 }
 
@@ -51,7 +53,8 @@ export interface EmploymentEligibilityData {
 }
 
 export interface EducationData {
-  [fieldName: string]: string | [string, string] | undefined;
+  // Country/state/city fields hold location names; they may be cleared to null.
+  [fieldName: string]: string | null | [string, string] | undefined;
 }
 
 export interface ReferenceEntry {
@@ -68,8 +71,9 @@ export interface EmployerEntry {
   companyName: string;
   email: string;
   address: string;
-  city: string;
-  state: string;
+  country: string | null;
+  state: string | null;
+  city: string | null;
   zip: string;
   phone: string;
   jobTitle: string;

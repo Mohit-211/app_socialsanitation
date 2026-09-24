@@ -3,7 +3,8 @@ import { Form, Input, DatePicker, Radio, Button, Row, Col } from "antd";
 import type { FormInstance } from "antd/es/form";
 import dayjs from "dayjs";
 import type { Dayjs } from "dayjs";
- import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
+import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
+import LocationSelects from "@/components/common/LocationSelects";
 import { useTranslation } from "@/translation/useTranslation";
 import type { Language } from "@/translation/types";
 import type {
@@ -42,6 +43,18 @@ const PreviousEmployment = ({
       previousEmployment: allValues.previousEmployment,
     }));
   };
+
+  const syncFromForm = () =>
+    setFormData((prev) => ({
+      ...prev,
+      previousEmployment: form.getFieldValue("previousEmployment"),
+    }));
+
+  const locationText = (kind: "label" | "placeholder" | "required") => ({
+    country: t(`previousEmployment.country.${kind}`),
+    state: t(`previousEmployment.state.${kind}`),
+    city: t(`previousEmployment.city.${kind}`),
+  });
 
   return (
     <Form
@@ -160,43 +173,23 @@ const PreviousEmployment = ({
                   </Form.Item>
 
                   <Row gutter={[16, 16]}>
-                    <Col xs={24} sm={12} md={8}>
-                      <Form.Item
-                        {...restField}
-                        label={t("previousEmployment.city.label")}
-                        name={[name, "city"]}
-                        rules={[
-                          {
-                            required: true,
-                            message: t("previousEmployment.city.required"),
-                          },
-                        ]}
-                      >
-                        <Input
-                          placeholder={t("previousEmployment.city.placeholder")}
-                        />
-                      </Form.Item>
-                    </Col>
-                    <Col xs={24} sm={12} md={8}>
-                      <Form.Item
-                        {...restField}
-                        label={t("previousEmployment.state.label")}
-                        name={[name, "state"]}
-                        rules={[
-                          {
-                            required: true,
-                            message: t("previousEmployment.state.required"),
-                          },
-                        ]}
-                      >
-                        <Input
-                          placeholder={t(
-                            "previousEmployment.state.placeholder"
-                          )}
-                        />
-                      </Form.Item>
-                    </Col>
-                    <Col xs={24} sm={12} md={8}>
+                    <LocationSelects
+                      form={form}
+                      language={language}
+                      names={{ country: "country", state: "state", city: "city" }}
+                      list={{
+                        path: ["previousEmployment", "employers"],
+                        index: name,
+                      }}
+                      itemProps={restField}
+                      labels={locationText("label")}
+                      placeholders={locationText("placeholder")}
+                      requiredMessages={locationText("required")}
+                      colProps={{ xs: 24, sm: 12, md: 6 }}
+                      // Cleared state/city don't go through onValuesChange; resync.
+                      onChange={syncFromForm}
+                    />
+                    <Col xs={24} sm={12} md={6}>
                       <Form.Item
                         {...restField}
                         label={t("previousEmployment.zip.label")}

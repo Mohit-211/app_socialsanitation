@@ -63,6 +63,7 @@
       "city": "Ciudad",
       "state": "Estado",
       "zipCode": "Código postal",
+      "country": "País",
       "dateOfBirth": "Fecha de nacimiento",
       "dateAvailable": "Fecha de disponible",
       "email": "Correo electrónico",
@@ -75,7 +76,9 @@
       "requiredTemplate": "Por favor, ingrese su {field}!",
       "phoneRequired": "Por favor, ingrese su número de teléfono!",
       "phonePattern": "El número de teléfono debe contener exactamente 10 dígitos!",
-      "emailFormat": "Por favor, introduzca una dirección de correo electrónico válida."
+      "emailFormat": "Por favor, introduzca una dirección de correo electrónico válida.",
+      "selectCountryFirst": "Por favor, seleccione primero un país",
+      "selectStateFirst": "Por favor, seleccione primero un estado"
     },
     "employmentType": {
       "label": "Empleo Deseado",
@@ -123,18 +126,23 @@
     },
     "city": {
       "label": "Ciudad",
-      "placeholder": "Ingrese su ciudad",
-      "required": "Por favor, ingrese su ciudad!"
+      "placeholder": "Seleccione su ciudad",
+      "required": "¡Por favor, seleccione su ciudad!"
     },
     "state": {
       "label": "Estado",
-      "placeholder": "Ingrese su Estado",
-      "required": "Por favor ingrese su Estado!"
+      "placeholder": "Seleccione su Estado",
+      "required": "¡Por favor seleccione su Estado!"
     },
     "zip": {
       "label": "Código postal",
       "placeholder": "Ingrese su Código postal",
       "required": "Por favor ingrese su Código postal!"
+    },
+    "country": {
+      "label": "País",
+      "placeholder": "Seleccione su país",
+      "required": "¡Por favor seleccione su país!"
     },
     "signature1": { "label": "Firma", "required": "Se requiere firma." },
     "ssn": {
@@ -154,8 +162,8 @@
     },
     "licenseState": {
       "label": "Estado",
-      "placeholder": "Ingrese su estado",
-      "required": "¡Por favor, ingrese su estado!"
+      "placeholder": "Seleccione su estado",
+      "required": "¡Por favor, seleccione su estado!"
     },
     "toAllApplicants": "A todos los solicitantes:",
     "infoUseNote": "La información solicitada anteriormente se utiliza para ayudar en la realización de una investigación de antecedentes. Esta información se mantendrá en un archivo de acceso limitado, separado de su solicitud. La información será utilizada únicamente con el propósito de identificación al realizar la investigación de antecedentes.",
@@ -189,6 +197,7 @@
   },
   "education": {
     "placeholderTemplate": "Ingrese {field}",
+    "selectPlaceholderTemplate": "Seleccione {field}",
     "yes": "Sí",
     "no": "No",
     "sections": {
@@ -197,6 +206,7 @@
         "fields": {
           "highSchoolName": "Nombre de la escuela",
           "highSchoolCity": "Ciudad",
+          "highSchoolCountry": "País",
           "highSchoolState": "Estado",
           "highSchoolDuration": "Desde - Hasta",
           "highSchoolGraduate": "¿Graduado?",
@@ -208,6 +218,7 @@
         "fields": {
           "collegeName": "Nombre del Colegio",
           "collegeCity": "Ciudad",
+          "collegeCountry": "País",
           "collegeState": "Estado",
           "collegeDuration": "Desde - Hasta",
           "collegeGraduate": "¿Graduado?",
@@ -219,6 +230,7 @@
         "fields": {
           "otherEducation": "Nombre de la institución",
           "otherCity": "Ciudad",
+          "otherCountry": "País",
           "otherState": "Estado",
           "otherDuration": "Desde - Hasta",
           "otherDegree": "Licenciatura/Certificación"
@@ -290,15 +302,20 @@
       "placeholder": "Ingrese dirección",
       "required": "¡Por favor, ingrese la dirección!"
     },
+    "country": {
+      "label": "País",
+      "placeholder": "Seleccione país",
+      "required": "¡Por favor, seleccione el país!"
+    },
     "city": {
       "label": "Ciudad",
-      "placeholder": "Ingrese ciudad",
-      "required": "¡Por favor, ingrese la ciudad!"
+      "placeholder": "Seleccione ciudad",
+      "required": "¡Por favor, seleccione la ciudad!"
     },
     "state": {
       "label": "Estado",
-      "placeholder": "Ingrese estado",
-      "required": "¡Por favor, ingrese el estado!"
+      "placeholder": "Seleccione estado",
+      "required": "¡Por favor, seleccione el estado!"
     },
     "zip": {
       "label": "Código Postal",
