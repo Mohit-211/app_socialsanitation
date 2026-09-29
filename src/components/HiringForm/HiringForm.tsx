@@ -6,6 +6,7 @@ type HiringFormLanguageChoice = "english" | "spanish";
 const HiringForm = () => {
   const navigate = useNavigate();
 
+  
   const handleLanguageSelect = (lang: HiringFormLanguageChoice) => {
     if (lang === "english") {
       navigate("/hiring-form-en");
