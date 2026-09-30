@@ -30,6 +30,7 @@ export interface AuthorizationData {
 // shape. Only "License State" is new - it replaces the second field that used to
 // collide with "State" under the same name.
 export interface PolicyData {
+  states: import("../api/location").StateOption[];
   "Applicant's Name"?: string;
   "Applicant's Address"?: string;
   City?: string | null;
