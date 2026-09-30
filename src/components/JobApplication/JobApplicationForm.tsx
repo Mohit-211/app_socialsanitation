@@ -67,7 +67,7 @@ const createInitialFormData = (): JobApplicationFormData => ({
   militaryService: { veteran: "no", records: [] },
   backgroundCheck: {},
   authorization: {},
-  policy: {},
+  policy: { states: [] },
   disclaimer: {},
   floridaAgreement: {},
   directDeposit: { banks: [{}] },
