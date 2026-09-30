@@ -46,9 +46,8 @@ const EmployeeDirectDeposit = ({
     }
     form.setFieldsValue({
       employee_name: formData.directDeposit?.employee_name || "",
-      date: formData.directDeposit?.date
-        ? dayjs(formData.directDeposit.date, DATE_STORAGE_FORMAT, true)
-        : null,
+      // Keep the stored string; getValueProps converts it to Dayjs for the picker.
+      date: formData.directDeposit?.date ?? null,
       banks: formData.directDeposit?.banks || [{}],
       signature: formData.directDeposit?.signature || null,
     });

@@ -22,6 +22,7 @@ interface PolicyProps {
 }
 
 const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
+  console.log(formData,'formData')
   const { t, tList } = useTranslation(language);
 
   const [signature1, setSignature1] = useState<string | null>(
@@ -41,6 +42,9 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
     // Restores values on mount / when navigating back to this step.
     form.setFieldsValue({
       ...formData.policy,
+      // Default License State to the address State until one is picked.
+      "License State":
+        formData.policy?.["License State"] || formData.policy?.State || null,
       signature1: formData.policy?.signature1 ?? null,
       signature2: formData.policy?.signature2 ?? null,
     });
@@ -293,6 +297,12 @@ const Policy = ({ form, formData, setFormData, language }: PolicyProps) => {
                   : undefined
               }
               options={toNameOptions(states)}
+              onChange={(value: string) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  policy: { ...prev.policy, "License State": value },
+                }))
+              }
             />
           </Form.Item>
 
